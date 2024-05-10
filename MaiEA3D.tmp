@@ -37,7 +37,7 @@ collision_mask = 3
 mass = 0.4
 gravity_scale = 0.0
 script = ExtResource("1_ms0ex")
-flip_force = 250000
+flip_force = 200000
 
 [node name="Sprite2D" type="Sprite2D" parent="Paddle Left"]
 position = Vector2(286, 0)
@@ -122,7 +122,7 @@ shape = SubResource("CircleShape2D_f8r46")
 debug_color = Color(0.952941, 0, 0.54902, 0.796078)
 
 [node name="Paddle Limiter" type="StaticBody2D" parent="."]
-position = Vector2(-121, 1296)
+position = Vector2(-1905, 1296)
 collision_layer = 2
 collision_mask = 2
 
@@ -130,7 +130,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_slhox")
 
 [node name="Paddle Limiter2" type="StaticBody2D" parent="."]
-position = Vector2(-119, 293)
+position = Vector2(-1903, 293)
 collision_layer = 2
 collision_mask = 2
 
