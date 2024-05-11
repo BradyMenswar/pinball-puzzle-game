@@ -1,45 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=5 format=3 uid="uid://bhq64j7giowbb"]
 
-[ext_resource type="Texture2D" uid="uid://bqg1g6n4lthbe" path="res://pinball.png" id="1_e3rw3"]
 [ext_resource type="Texture2D" uid="uid://djdj3r3cr7nuo" path="res://icon.svg" id="3_3iv0c"]
+[ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Ball.tscn" id="3_4ocnq"]
 [ext_resource type="PackedScene" uid="uid://cgdj2s264v52a" path="res://Flipper.tscn" id="3_7re6q"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ar7n"]
-radius = 120.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4p6v"]
 size = Vector2(4915, 101)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(-159, -252)
-center_of_mass_mode = 1
-
-[node name="Collision" type="CollisionShape2D" parent="Ball"]
-position = Vector2(1, 1)
-shape = SubResource("CircleShape2D_0ar7n")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ball"]
-texture = ExtResource("1_e3rw3")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -2)
-zoom = Vector2(0.25, 0.25)
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-16, 1715)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("RectangleShape2D_h4p6v")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-scale = Vector2(38.3672, 1)
-texture = ExtResource("3_3iv0c")
-
 [node name="Ground2" type="StaticBody2D" parent="."]
 position = Vector2(-2431, -774)
 rotation = -1.5708
+scale = Vector2(6.32, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
 shape = SubResource("RectangleShape2D_h4p6v")
@@ -51,6 +24,7 @@ texture = ExtResource("3_3iv0c")
 [node name="Ground3" type="StaticBody2D" parent="."]
 position = Vector2(2454, -774)
 rotation = -1.5708
+scale = Vector2(6.24, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
 shape = SubResource("RectangleShape2D_h4p6v")
@@ -59,27 +33,25 @@ shape = SubResource("RectangleShape2D_h4p6v")
 scale = Vector2(38.3672, 1)
 texture = ExtResource("3_3iv0c")
 
-[node name="Ground4" type="StaticBody2D" parent="."]
-position = Vector2(-2856, -620)
-rotation = -2.61799
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
-shape = SubResource("RectangleShape2D_h4p6v")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground4"]
-scale = Vector2(38.3672, 1)
-texture = ExtResource("3_3iv0c")
-
-[node name="Ground5" type="StaticBody2D" parent="."]
-position = Vector2(2229, -162)
-rotation = -3.66519
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground5"]
-shape = SubResource("RectangleShape2D_h4p6v")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground5"]
-scale = Vector2(38.3672, 1)
-texture = ExtResource("3_3iv0c")
-
 [node name="Flipper Left" parent="." instance=ExtResource("3_7re6q")]
-position = Vector2(-630, 797)
+position = Vector2(-820, 2000)
+
+[node name="Flipper Right" parent="." instance=ExtResource("3_7re6q")]
+position = Vector2(820, 2000)
+scale = Vector2(-1, 1)
+is_right = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-25, -1951)
+polygon = PackedVector2Array(-2373, -614, -2230, -1093, -1894, -1654, -1378, -2006, -858, -2209, -325, -2282, 11, -2310, 495, -2269, 1190, -2095, 1560, -1857, 1963, -1534, 2280, -1188, 2457, -621, 3088, -599, -7, -3406, -2334, -1469)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-879, 1866, -2440, 637, -801, 2961, 1597, 2964, 2682, 677, 879, 1866, 1111, 1862, 1025, 2234, 690, 2852, -629, 2841, -1201, 1862)
+
+[node name="Ball" parent="." instance=ExtResource("3_4ocnq")]
+position = Vector2(400, 2.08165e-12)

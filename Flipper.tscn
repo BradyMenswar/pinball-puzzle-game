@@ -1,42 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgdj2s264v52a"]
+[gd_scene load_steps=9 format=3 uid="uid://cgdj2s264v52a"]
 
 [ext_resource type="Script" path="res://Flipper.gd" id="1_2qydp"]
+[ext_resource type="Script" path="res://Flipper Configuration.gd" id="1_c2d46"]
 [ext_resource type="Texture2D" uid="uid://chc0s2ownosnq" path="res://flipper.png" id="2_ysr2w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hybl4"]
-radius = 173.0
+radius = 114.37
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smkks"]
-radius = 123.0
+radius = 52.65
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pgc3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ft0o8"]
-radius = 109.21
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lrj5"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7usb5"]
+radius = 100.0
 
 [node name="Flipper" type="Node2D"]
+script = ExtResource("1_c2d46")
 
 [node name="Flipper Collision" type="RigidBody2D" parent="."]
-position = Vector2(0, -1)
-rotation = 0.523598
 collision_layer = 3
 collision_mask = 2
-mass = 2.0
+mass = 0.4
 gravity_scale = 0.0
 script = ExtResource("1_2qydp")
+flip_force = 4000
+scale_factor = 100
 
 [node name="Flipper Sprite" type="Sprite2D" parent="Flipper Collision"]
-position = Vector2(275, 0)
+position = Vector2(330, 0)
 texture = ExtResource("2_ysr2w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flipper Collision"]
-polygon = PackedVector2Array(0, -173, 607, -123, 607, 123, 0, 173)
+polygon = PackedVector2Array(719, -52.75, 719, 52.75, 2.08165e-12, 114.5, 2.08165e-12, -114.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flipper Collision"]
 shape = SubResource("CircleShape2D_hybl4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Flipper Collision"]
-position = Vector2(607, 0)
+position = Vector2(719, 0)
 shape = SubResource("CircleShape2D_smkks")
 
 [node name="Flipper Joint" type="PinJoint2D" parent="."]
@@ -50,20 +55,21 @@ shape = SubResource("CircleShape2D_6pgc3")
 debug_color = Color(0.952941, 0, 0.54902, 0.796078)
 
 [node name="Flipper Limiter Top" type="Area2D" parent="."]
-position = Vector2(526, -440)
+position = Vector2(530, -300)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flipper Limiter Top"]
-shape = SubResource("CircleShape2D_ft0o8")
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_4lrj5")
 
 [node name="Flipper Limiter Bottom" type="Area2D" parent="."]
-position = Vector2(529, 422)
+position = Vector2(530, 300)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flipper Limiter Bottom"]
-shape = SubResource("CircleShape2D_ft0o8")
+shape = SubResource("CircleShape2D_7usb5")
 
 [connection signal="body_entered" from="Flipper Limiter Top" to="Flipper Collision" method="_on_flipper_limiter_top_body_entered"]
 [connection signal="body_exited" from="Flipper Limiter Top" to="Flipper Collision" method="_on_flipper_limiter_top_body_exited"]
