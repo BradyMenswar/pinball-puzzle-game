@@ -27,8 +27,6 @@ collision_mask = 2
 mass = 0.4
 gravity_scale = 0.0
 script = ExtResource("1_2qydp")
-flip_force = 4000
-scale_factor = 100
 
 [node name="Flipper Sprite" type="Sprite2D" parent="Flipper Collision"]
 position = Vector2(330, 0)
@@ -60,7 +58,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flipper Limiter Top"]
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_4lrj5")
 
 [node name="Flipper Limiter Bottom" type="Area2D" parent="."]

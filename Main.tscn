@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=5 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="Texture2D" uid="uid://djdj3r3cr7nuo" path="res://icon.svg" id="3_3iv0c"]
 [ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Ball.tscn" id="3_4ocnq"]
@@ -6,10 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4p6v"]
 size = Vector2(4915, 101)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g3uob"]
-friction = 0.0
-bounce = 0.25
 
 [node name="Node2D" type="Node2D"]
 
@@ -48,23 +44,23 @@ is_right = true
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-25, -1951)
+position = Vector2(-185, -7871)
 polygon = PackedVector2Array(-2373, -614, -2230, -1093, -1894, -1654, -1378, -2006, -858, -2209, -325, -2282, 11, -2310, 495, -2269, 1190, -2095, 1560, -1857, 1963, -1534, 2280, -1188, 2457, -621, 3088, -599, -7, -3406, -2334, -1469)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-879, 1866, -2440, 637, -801, 2961, 1597, 2964, 2682, 677, 879, 1866, 1111, 1862, 1025, 2234, 690, 2852, -629, 2841, -1201, 1862)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1327)
+scale = Vector2(20, 20)
+texture = ExtResource("3_3iv0c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(33, -5391)
+scale = Vector2(20, 20)
+texture = ExtResource("3_3iv0c")
+
 [node name="Ball" parent="." instance=ExtResource("3_4ocnq")]
-top_level = true
-position = Vector2(400, 2.08165e-12)
-mass = 3.0
-physics_material_override = SubResource("PhysicsMaterial_g3uob")
-gravity_scale = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 zoom = Vector2(0.2, 0.2)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(17, -1471)
-scale = Vector2(20, 20)
-texture = ExtResource("3_3iv0c")
