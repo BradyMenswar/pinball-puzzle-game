@@ -1,6 +1,6 @@
 extends RigidBody2D
-@export var flip_force = 2000
-@export var scale_factor = 1000
+@export var flip_force = 50
+@export var scale_factor = 1
 @export var is_right = false
 var rest_rotation = 30
 var side_bias = 1
