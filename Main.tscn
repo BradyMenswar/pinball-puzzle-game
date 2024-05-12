@@ -61,6 +61,18 @@ scale = Vector2(20, 20)
 texture = ExtResource("3_3iv0c")
 
 [node name="Ball" parent="." instance=ExtResource("3_4ocnq")]
+mass = 5.0
+max_speed = 10000
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 zoom = Vector2(0.2, 0.2)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 1.0
+drag_top_margin = 0.1
+drag_right_margin = 1.0
+drag_bottom_margin = 0.1
+editor_draw_limits = true
+editor_draw_drag_margin = true
