@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dlfk6rvat8jqv" path="res://Scenes/bounce_component.tscn" id="2_nwk84"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjoc2"]
-radius = 403.3
+radius = 405.005
 
 [node name="CircleBouncer" type="Node2D"]
 

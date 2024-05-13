@@ -4,11 +4,6 @@ var reset_state = false
 var reset_location
 @export var max_speed = 100
 
-
-func _input(event):
-	if event.is_action_pressed("reset_ball"):
-		move_body(Vector2(1160, 0))
-
 func _integrate_forces(state):
 	if reset_state:
 		state.transform = Transform2D(0.0, reset_location)
@@ -23,3 +18,7 @@ func _physics_process(_delta):
 func move_body(target_location: Vector2):
 	reset_location = target_location
 	reset_state = true
+
+#Used in main.gd for killbox confirmation	
+func is_ball():
+	pass

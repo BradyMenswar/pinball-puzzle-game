@@ -1,39 +1,52 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=12 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="Texture2D" uid="uid://djdj3r3cr7nuo" path="res://Assets/icon.svg" id="1_8myqi"]
 [ext_resource type="PackedScene" uid="uid://cgdj2s264v52a" path="res://Scenes/Flipper.tscn" id="2_d17kv"]
 [ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="3_5o10c"]
 [ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/circle_bouncer.tscn" id="4_7pdk3"]
 [ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/slingshot.tscn" id="5_hv756"]
+[ext_resource type="Script" path="res://Scripts/BallHandler.gd" id="5_ygwu0"]
+[ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_auw3e"]
+[ext_resource type="Script" path="res://Scripts/BallCount.gd" id="7_tppn5"]
+[ext_resource type="PackedScene" uid="uid://cw66awwf0s0xk" path="res://Scenes/Edge.tscn" id="9_vl3sy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4p6v"]
-size = Vector2(4915, 101)
+[sub_resource type="GDScript" id="GDScript_teahg"]
+script/source = "extends Node2D
+# Called when the node enters the scene tree for the first time.
 
-[node name="Node2D" type="Node2D"]
+signal change_ballcount
+var balls_lost = 0
+func _ready():
+	pass # Replace with function body.
 
-[node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(-2431, -774)
-rotation = -1.5708
-scale = Vector2(6.32, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-shape = SubResource("RectangleShape2D_h4p6v")
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 
-[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
-scale = Vector2(38.3672, 1)
-texture = ExtResource("1_8myqi")
 
-[node name="Ground3" type="StaticBody2D" parent="."]
-position = Vector2(2454, -774)
-rotation = -1.5708
-scale = Vector2(6.24, 1)
+func _on_killbox_body_entered(body):
+	if body.has_method(\"is_ball\"):
+		body.queue_free()
+		balls_lost += 1
+		emit_signal(\"change_ballcount\",balls_lost)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
-shape = SubResource("RectangleShape2D_h4p6v")
+func _input(event):
+	if event.is_action_pressed(\"reset_ball\"):
+		#Should make a new ball scene, turn it into a node (instance) then make that node a child of main
+		var scene = load(\"res://Scenes/Ball.tscn\")
+		var instance = scene.instantiate()
+		#Attempting to move ball
+		instance.move_body(Vector2(1160, 0))
+		
+		
+"
 
-[node name="Sprite2D" type="Sprite2D" parent="Ground3"]
-scale = Vector2(38.3672, 1)
-texture = ExtResource("1_8myqi")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
+size = Vector2(1278, 271)
+
+[node name="Main" type="Node2D"]
+script = SubResource("GDScript_teahg")
 
 [node name="Flipper Left" parent="." instance=ExtResource("2_d17kv")]
 position = Vector2(-820, 2000)
@@ -42,15 +55,6 @@ position = Vector2(-820, 2000)
 position = Vector2(820, 2000)
 scale = Vector2(-1, 1)
 is_right = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-185, -7871)
-polygon = PackedVector2Array(-2373, -614, -2230, -1093, -1894, -1654, -1378, -2006, -858, -2209, -325, -2282, 11, -2310, 495, -2269, 1190, -2095, 1560, -1857, 1963, -1534, 2280, -1188, 2457, -621, 3088, -599, -7, -3406, -2334, -1469)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-879, 1866, -2440, 637, -801, 2961, 1597, 2964, 2682, 677, 879, 1866, 1111, 1862, 1025, 2234, 690, 2852, -629, 2841, -1201, 1862)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -1327)
@@ -62,13 +66,67 @@ position = Vector2(33, -5391)
 scale = Vector2(20, 20)
 texture = ExtResource("1_8myqi")
 
-[node name="Ball" parent="." instance=ExtResource("3_5o10c")]
-position = Vector2(1065, -379)
-mass = 5.0
-max_speed = 10000
+[node name="CircleBouncer" parent="." instance=ExtResource("4_7pdk3")]
+position = Vector2(-634, -1838)
+scale = Vector2(0.75, 0.75)
 
-[node name="Camera2D" type="Camera2D" parent="Ball"]
-zoom = Vector2(0.2, 0.2)
+[node name="CircleBouncer2" parent="." instance=ExtResource("4_7pdk3")]
+position = Vector2(634, -1838)
+scale = Vector2(0.75, 0.75)
+
+[node name="CircleBouncer4" parent="." instance=ExtResource("4_7pdk3")]
+position = Vector2(-2641, -3254)
+scale = Vector2(0.75, 0.75)
+
+[node name="CircleBouncer5" parent="." instance=ExtResource("4_7pdk3")]
+position = Vector2(2641, -3254)
+scale = Vector2(0.75, 0.75)
+
+[node name="Slingshot" parent="." instance=ExtResource("5_hv756")]
+position = Vector2(-1500, 600)
+rotation = -0.523599
+scale = Vector2(1.5, 2)
+
+[node name="Slingshot2" parent="." instance=ExtResource("5_hv756")]
+position = Vector2(1500, 600)
+rotation = 0.523599
+scale = Vector2(-1.5, 2)
+
+[node name="BallHandler" type="Node2D" parent="."]
+script = ExtResource("5_ygwu0")
+
+[node name="Killbox" type="Area2D" parent="BallHandler"]
+script = ExtResource("7_auw3e")
+
+[node name="ColorRect" type="ColorRect" parent="BallHandler/Killbox"]
+offset_left = -592.0
+offset_top = 2572.0
+offset_right = 673.0
+offset_bottom = 2827.0
+color = Color(0.737492, 0.327653, 0.296651, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallHandler/Killbox"]
+position = Vector2(41, 2693)
+shape = SubResource("RectangleShape2D_wikol")
+
+[node name="Ballcount" type="Label" parent="BallHandler/Killbox"]
+offset_left = -5593.0
+offset_top = -3803.0
+offset_right = -2754.0
+offset_bottom = -3121.0
+theme_override_font_sizes/font_size = 500
+text = "Balls Lost: 0
+"
+script = ExtResource("7_tppn5")
+
+[node name="Ball" parent="BallHandler" instance=ExtResource("3_5o10c")]
+light_mask = 5
+visibility_layer = 5
+position = Vector2(1065, -379)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-32, -662)
+zoom = Vector2(0.09, 0.09)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
 drag_horizontal_enabled = true
@@ -80,20 +138,59 @@ drag_bottom_margin = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="CircleBouncer" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(-634, -2927)
+[node name="Ground" type="Node2D" parent="."]
 
-[node name="CircleBouncer2" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(747, -2925)
+[node name="Ground1" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(14045, -5694)
+rotation = 1.0472
 
-[node name="CircleBouncer3" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(43, -4036)
+[node name="Ground2" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(-14045, -5694)
+rotation = -1.0472
 
-[node name="Slingshot" parent="." instance=ExtResource("5_hv756")]
-position = Vector2(-1340, 750)
-rotation = -0.522531
+[node name="Ground3" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(11526, -10115)
+rotation = 0.698132
 
-[node name="Slingshot2" parent="." instance=ExtResource("5_hv756")]
-position = Vector2(1340, 750)
-rotation = 0.523599
-scale = Vector2(-1, 1)
+[node name="Ground5" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(7751, -13356)
+rotation = 0.349066
+
+[node name="Ground7" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(4727, -15612)
+rotation = 0.0872665
+
+[node name="Ground8" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(-4727, -15612)
+rotation = -0.0872665
+
+[node name="Ground10" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(0, -7664)
+rotation = -0.698132
+
+[node name="Ground11" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(0, -7664)
+rotation = 0.698132
+
+[node name="Ground4" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(-11526, -10115)
+rotation = -0.698132
+
+[node name="Ground6" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(-7751, -13356)
+rotation = -0.349066
+
+[node name="Wall 1" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(1018, -2842)
+rotation = 0.349066
+scale = Vector2(1, 0.07)
+
+[node name="Wall 2" parent="Ground" instance=ExtResource("9_vl3sy")]
+position = Vector2(-1018, -2842)
+rotation = -0.349066
+scale = Vector2(1, 0.07)
+
+[connection signal="change_ballcount" from="." to="BallHandler/Killbox/Ballcount" method="_on_main_change_ballcount"]
+[connection signal="body_entered" from="BallHandler/Killbox" to="." method="_on_killbox_body_entered"]
+[connection signal="body_entered" from="BallHandler/Killbox" to="BallHandler/Killbox" method="_on_body_entered"]
+[connection signal="change_ballcount" from="BallHandler/Killbox" to="BallHandler/Killbox/Ballcount" method="_on_killbox_change_ballcount"]
