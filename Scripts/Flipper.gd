@@ -29,7 +29,7 @@ func _input(event):
 		# If you were holding the button and then decide to let go, this pulls it down.
 		apply_torque_impulse(flip_force * side_bias * scale_factor)
 
-func _on_flipper_limiter_top_body_entered(body):
+func _on_flipper_limiter_top_body_entered(_body):
 	is_active = true;
 	# Stops the flipper absolutely when it hits the stopper with no bounce back.
 	angular_velocity = 0
@@ -38,10 +38,10 @@ func _on_flipper_limiter_top_body_entered(body):
 	if !Input.is_action_pressed(flip_action):
 		apply_torque_impulse(flip_force * side_bias * scale_factor)
 
-func _on_flipper_limiter_top_body_exited(body):
+func _on_flipper_limiter_top_body_exited(_body):
 	is_active = false;
 
 
-func _on_flipper_limiter_bottom_body_entered(body):
+func _on_flipper_limiter_bottom_body_entered(_body):
 	angular_velocity = 0
 	linear_velocity = Vector2.ZERO

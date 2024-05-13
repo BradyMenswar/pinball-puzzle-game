@@ -63,7 +63,7 @@ scale = Vector2(20, 20)
 texture = ExtResource("1_8myqi")
 
 [node name="Ball" parent="." instance=ExtResource("3_5o10c")]
-position = Vector2(500, 0)
+position = Vector2(1065, -379)
 mass = 5.0
 max_speed = 10000
 
@@ -81,17 +81,19 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="CircleBouncer" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(-1650, -1885)
+position = Vector2(-634, -2927)
 
 [node name="CircleBouncer2" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(-269, -1883)
+position = Vector2(747, -2925)
 
 [node name="CircleBouncer3" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(-973, -2994)
+position = Vector2(43, -4036)
 
 [node name="Slingshot" parent="." instance=ExtResource("5_hv756")]
-position = Vector2(-1132, 620)
+position = Vector2(-1340, 750)
+rotation = -0.522531
 
 [node name="Slingshot2" parent="." instance=ExtResource("5_hv756")]
-position = Vector2(1082, 575)
+position = Vector2(1340, 750)
+rotation = 0.523599
 scale = Vector2(-1, 1)

@@ -7,7 +7,7 @@ var reset_location
 
 func _input(event):
 	if event.is_action_pressed("reset_ball"):
-		move_body(Vector2(400, 0))
+		move_body(Vector2(1160, 0))
 
 func _integrate_forces(state):
 	if reset_state:
@@ -16,7 +16,7 @@ func _integrate_forces(state):
 		angular_velocity = 0
 		linear_velocity = Vector2.ZERO
 		
-func _physics_process(delta):
+func _physics_process(_delta):
 	if(linear_velocity.length() > max_speed):
 		linear_velocity = linear_velocity.normalized() * max_speed
 
