@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgdj2s264v52a"]
 
-[ext_resource type="Script" path="res://Flipper.gd" id="1_2qydp"]
-[ext_resource type="Script" path="res://Flipper Configuration.gd" id="1_c2d46"]
-[ext_resource type="Texture2D" uid="uid://chc0s2ownosnq" path="res://flipper.png" id="2_ysr2w"]
+[ext_resource type="Script" path="res://Scripts/Flipper.gd" id="1_2qydp"]
+[ext_resource type="Script" path="res://Scripts/FlipperConfiguration.gd" id="1_c2d46"]
+[ext_resource type="Texture2D" uid="uid://chc0s2ownosnq" path="res://Assets/flipper.png" id="2_ysr2w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hybl4"]
 radius = 114.37

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=7 format=3 uid="uid://bhq64j7giowbb"]
 
-[ext_resource type="Texture2D" uid="uid://djdj3r3cr7nuo" path="res://icon.svg" id="3_3iv0c"]
-[ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Ball.tscn" id="3_4ocnq"]
-[ext_resource type="PackedScene" uid="uid://cgdj2s264v52a" path="res://Flipper.tscn" id="3_7re6q"]
+[ext_resource type="Texture2D" uid="uid://djdj3r3cr7nuo" path="res://Assets/icon.svg" id="1_8myqi"]
+[ext_resource type="PackedScene" uid="uid://cgdj2s264v52a" path="res://Scenes/Flipper.tscn" id="2_d17kv"]
+[ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="3_5o10c"]
+[ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/circle_bouncer.tscn" id="4_7pdk3"]
+[ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/slingshot.tscn" id="5_hv756"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4p6v"]
 size = Vector2(4915, 101)
@@ -19,7 +21,7 @@ shape = SubResource("RectangleShape2D_h4p6v")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground2"]
 scale = Vector2(38.3672, 1)
-texture = ExtResource("3_3iv0c")
+texture = ExtResource("1_8myqi")
 
 [node name="Ground3" type="StaticBody2D" parent="."]
 position = Vector2(2454, -774)
@@ -31,12 +33,12 @@ shape = SubResource("RectangleShape2D_h4p6v")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground3"]
 scale = Vector2(38.3672, 1)
-texture = ExtResource("3_3iv0c")
+texture = ExtResource("1_8myqi")
 
-[node name="Flipper Left" parent="." instance=ExtResource("3_7re6q")]
+[node name="Flipper Left" parent="." instance=ExtResource("2_d17kv")]
 position = Vector2(-820, 2000)
 
-[node name="Flipper Right" parent="." instance=ExtResource("3_7re6q")]
+[node name="Flipper Right" parent="." instance=ExtResource("2_d17kv")]
 position = Vector2(820, 2000)
 scale = Vector2(-1, 1)
 is_right = true
@@ -53,14 +55,15 @@ polygon = PackedVector2Array(-879, 1866, -2440, 637, -801, 2961, 1597, 2964, 268
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -1327)
 scale = Vector2(20, 20)
-texture = ExtResource("3_3iv0c")
+texture = ExtResource("1_8myqi")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(33, -5391)
 scale = Vector2(20, 20)
-texture = ExtResource("3_3iv0c")
+texture = ExtResource("1_8myqi")
 
-[node name="Ball" parent="." instance=ExtResource("3_4ocnq")]
+[node name="Ball" parent="." instance=ExtResource("3_5o10c")]
+position = Vector2(500, 0)
 mass = 5.0
 max_speed = 10000
 
@@ -76,3 +79,19 @@ drag_right_margin = 1.0
 drag_bottom_margin = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="CircleBouncer" parent="." instance=ExtResource("4_7pdk3")]
+position = Vector2(-1650, -1885)
+
+[node name="CircleBouncer2" parent="." instance=ExtResource("4_7pdk3")]
+position = Vector2(-269, -1883)
+
+[node name="CircleBouncer3" parent="." instance=ExtResource("4_7pdk3")]
+position = Vector2(-973, -2994)
+
+[node name="Slingshot" parent="." instance=ExtResource("5_hv756")]
+position = Vector2(-1132, 620)
+
+[node name="Slingshot2" parent="." instance=ExtResource("5_hv756")]
+position = Vector2(1082, 575)
+scale = Vector2(-1, 1)

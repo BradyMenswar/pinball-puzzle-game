@@ -17,7 +17,6 @@ func _integrate_forces(state):
 		linear_velocity = Vector2.ZERO
 		
 func _physics_process(delta):
-	print("Velocity: ", linear_velocity)
 	if(linear_velocity.length() > max_speed):
 		linear_velocity = linear_velocity.normalized() * max_speed
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpsd7qnqbe3my"]
+
+[ext_resource type="Texture2D" uid="uid://bqg1g6n4lthbe" path="res://Assets/pinball.png" id="1_h046e"]
+[ext_resource type="PackedScene" uid="uid://dlfk6rvat8jqv" path="res://Scenes/bounce_component.tscn" id="2_nwk84"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fjoc2"]
+radius = 403.3
+
+[node name="CircleBouncer" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.35537, 3.35537)
+texture = ExtResource("1_h046e")
+
+[node name="BounceComponent" parent="." instance=ExtResource("2_nwk84")]
+position = Vector2(-8, 0)
+
+[node name="BounceRadius" type="CollisionShape2D" parent="BounceComponent"]
+shape = SubResource("CircleShape2D_fjoc2")

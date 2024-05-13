@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcmo357nxw77a"]
+
+[ext_resource type="Texture2D" uid="uid://chc0s2ownosnq" path="res://Assets/flipper.png" id="1_ig0na"]
+[ext_resource type="PackedScene" uid="uid://dlfk6rvat8jqv" path="res://Scenes/bounce_component.tscn" id="2_6pwdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsx6x"]
+size = Vector2(77.8585, 744)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x25tr"]
+radius = 101.119
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dddsp"]
+radius = 49.0
+
+[node name="Slingshot" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -1)
+rotation = 1.0472
+scale = Vector2(0.977533, 0.918429)
+texture = ExtResource("1_ig0na")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-161.993, -28)
+rotation = 1.5708
+scale = Vector2(0.84, 0.947077)
+texture = ExtResource("1_ig0na")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(12.5693, 291.815)
+rotation = 0.205024
+scale = Vector2(0.525648, 0.833097)
+texture = ExtResource("1_ig0na")
+
+[node name="BounceComponent" parent="." instance=ExtResource("2_6pwdb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceComponent"]
+position = Vector2(46.6197, -4.76337)
+rotation = -0.435972
+shape = SubResource("RectangleShape2D_hsx6x")
+
+[node name="NonBounceable" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NonBounceable"]
+position = Vector2(-160, -299)
+shape = SubResource("CircleShape2D_x25tr")
+debug_color = Color(1, 0, 0.0941176, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NonBounceable"]
+position = Vector2(196, 330)
+shape = SubResource("CircleShape2D_dddsp")
+debug_color = Color(1, 0, 0.129412, 0.419608)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NonBounceable"]
+polygon = PackedVector2Array(-262, -299, -210, 347, 195, 379, -149, -328)
