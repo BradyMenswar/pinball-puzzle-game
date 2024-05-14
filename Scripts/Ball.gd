@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var reset_state = false
 var reset_location
-@export var max_speed = 100
+@export var max_speed = 10000
 
 func _integrate_forces(state):
 	if reset_state:

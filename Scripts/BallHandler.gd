@@ -8,5 +8,5 @@ func _input(event):
 		var instance = scene.instantiate()
 		add_child(instance)
 		#Attempting to move ball
-		instance.move_body(Vector2(1160, 0))
+		instance.move_body(Vector2(1300, 0))
 

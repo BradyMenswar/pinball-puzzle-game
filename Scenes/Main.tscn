@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_auw3e"]
 [ext_resource type="Script" path="res://Scripts/BallCount.gd" id="7_tppn5"]
 [ext_resource type="PackedScene" uid="uid://cw66awwf0s0xk" path="res://Scenes/Edge.tscn" id="9_vl3sy"]
-[ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://test_flipper.tscn" id="10_cxee4"]
+[ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/flipper.tscn" id="10_cxee4"]
 
 [sub_resource type="GDScript" id="GDScript_teahg"]
 script/source = "extends Node2D
@@ -67,14 +67,13 @@ position = Vector2(2641, -3254)
 scale = Vector2(0.75, 0.75)
 
 [node name="Slingshot" parent="." instance=ExtResource("5_hv756")]
-position = Vector2(-1500, 600)
-rotation = -0.523599
-scale = Vector2(1.5, 2)
+position = Vector2(-1554, 798)
+rotation = -0.523598
 
 [node name="Slingshot2" parent="." instance=ExtResource("5_hv756")]
-position = Vector2(1500, 600)
+position = Vector2(1554, 792)
 rotation = 0.523599
-scale = Vector2(-1.5, 2)
+scale = Vector2(-1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-32, -662)
@@ -135,10 +134,10 @@ is_right = true
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground/StaticBody2D"]
-polygon = PackedVector2Array(-782, 1906, -849, 1996, -2549, 1034, -3561, -1667, -4144, -9435, 4211, -9410, 3575, -1721, 2567, 1064, 829, 1999, 765, 1908, 2380, 895, 3434, -1734, 4054, -9291, -3970, -9296, -3391, -1685, -2274, 841)
+polygon = PackedVector2Array(-782, 1906, -828, 1887, -898, 1907, -945, 1952, -956, 2011, -932, 2069, -2549, 1034, -3561, -1667, -4144, -9435, 4211, -9410, 3575, -1721, 2567, 1064, 930, 2037, 932, 1966, 886, 1911, 815, 1896, 765, 1908, 1894, 1148, 2126, -225, 3092, -710, 3434, -1734, 4054, -9291, -3970, -9296, -3391, -1685, -3064, -696, -2046, -201, -1879, 1156)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/StaticBody2D"]
-polygon = PackedVector2Array(-849, 1996, -782, 1906, -2276, 841, -3393, -1688, -3972, -9297, 4049, -9288, 3435, -1740, 2382, 891, 767, 1909, 828, 1999, 2570, 1063, 3577, -1727, 4213, -9408, -4148, -9439, -3563, -1666, -2550, 1039)
+polygon = PackedVector2Array(-825, 1890, -782, 1906, -1874, 1164, -2051, -194, -3076, -700, -3393, -1688, -3972, -9297, 4049, -9288, 3435, -1740, 3101, -710, 2131, -225, 1894, 1148, 767, 1909, 815, 1897, 887, 1914, 934, 1971, 930, 2043, 2570, 1063, 3577, -1727, 4213, -9408, -4148, -9439, -3563, -1666, -2550, 1039, -934, 2066, -956, 2010, -942, 1952, -897, 1907)
 
 [node name="Wall 1" parent="Ground" instance=ExtResource("9_vl3sy")]
 position = Vector2(1018, -2842)

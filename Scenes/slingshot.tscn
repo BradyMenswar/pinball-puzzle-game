@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bcmo357nxw77a"]
 
 [ext_resource type="Texture2D" uid="uid://bhfyqq4rwku7y" path="res://Assets/slingshot.png" id="1_t6ul1"]
-[ext_resource type="Script" path="res://Scripts/TestBounce.gd" id="1_tkg0i"]
+[ext_resource type="Script" path="res://Scripts/Bounce.gd" id="1_tkg0i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x25tr"]
 radius = 75.0
@@ -13,7 +13,7 @@ radius = 75.0
 radius = 52.0096
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxe7u"]
-size = Vector2(750, 30)
+size = Vector2(685.24, 30)
 
 [node name="Slingshot" type="Node2D"]
 script = ExtResource("1_tkg0i")
@@ -36,15 +36,16 @@ debug_color = Color(1, 0, 0.129412, 0.419608)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NonBounceable"]
 position = Vector2(4, -124)
-polygon = PackedVector2Array(-181, 219, -173, 283, 32, 529, 134, 488, 142, -221, 24, -261)
+polygon = PackedVector2Array(-181, 219, -173, 283, 32, 529, 158, 480, 160, -234, 24, -261)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="NonBounceable"]
 position = Vector2(-132, 122)
 shape = SubResource("CircleShape2D_35qxd")
 debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
-[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+[node name="BounceComponent" type="ShapeCast2D" parent="."]
 position = Vector2(168, 3)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_hxe7u")
 target_position = Vector2(-1, 0)
+collision_mask = 512
