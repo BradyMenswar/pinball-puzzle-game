@@ -140,45 +140,13 @@ editor_draw_drag_margin = true
 
 [node name="Ground" type="Node2D" parent="."]
 
-[node name="Ground1" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(14045, -5694)
-rotation = 1.0472
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
 
-[node name="Ground2" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(-14045, -5694)
-rotation = -1.0472
+[node name="Polygon2D" type="Polygon2D" parent="Ground/StaticBody2D"]
+polygon = PackedVector2Array(-782, 1906, -849, 1996, -2549, 1034, -3561, -1667, -4144, -9435, 4211, -9410, 3575, -1721, 2567, 1064, 829, 1999, 765, 1908, 2380, 895, 3434, -1734, 4054, -9291, -3970, -9296, -3391, -1685, -2274, 841)
 
-[node name="Ground3" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(11526, -10115)
-rotation = 0.698132
-
-[node name="Ground5" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(7751, -13356)
-rotation = 0.349066
-
-[node name="Ground7" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(4727, -15612)
-rotation = 0.0872665
-
-[node name="Ground8" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(-4727, -15612)
-rotation = -0.0872665
-
-[node name="Ground10" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(0, -7664)
-rotation = -0.698132
-
-[node name="Ground11" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(0, -7664)
-rotation = 0.698132
-
-[node name="Ground4" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(-11526, -10115)
-rotation = -0.698132
-
-[node name="Ground6" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(-7751, -13356)
-rotation = -0.349066
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/StaticBody2D"]
+polygon = PackedVector2Array(-849, 1996, -782, 1906, -2276, 841, -3393, -1688, -3972, -9297, 4049, -9288, 3435, -1740, 2382, 891, 767, 1909, 828, 1999, 2570, 1063, 3577, -1727, 4213, -9408, -4148, -9439, -3563, -1666, -2550, 1039)
 
 [node name="Wall 1" parent="Ground" instance=ExtResource("9_vl3sy")]
 position = Vector2(1018, -2842)

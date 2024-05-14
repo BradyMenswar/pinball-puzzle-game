@@ -1,0 +1,154 @@
+{
+  "main": {
+    "id": "58d911061b6fffd0",
+    "type": "split",
+    "children": [
+      {
+        "id": "71bdde4bc42fcedc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c19f24b18ad94b08",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "pinball planning.canvas",
+                "viewState": {
+                  "x": -108.76206018375163,
+                  "y": 317.8756252732982,
+                  "zoom": -0.25307428492065254
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5cbaf07972cbbd91",
+    "type": "split",
+    "children": [
+      {
+        "id": "4e6c99111f1f0e36",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "722c50f64505084d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3ce4afae8da62d84",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2baf19a55c372b8f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6481c01af94dfaa8",
+    "type": "split",
+    "children": [
+      {
+        "id": "3827ce819e384894",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f9b832b92e31bfdb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "pinball planning.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d0cbb7651726e7dc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "pinball planning.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1c21fdc2ac1fb627",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "a4d222f12c200654",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "pinball planning.canvas"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "c19f24b18ad94b08",
+  "lastOpenFiles": []
+}
