@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"d57fbafb8568d1bc","type":"text","text":"Mayan Arc","x":20,"y":-560,"width":250,"height":60},
+		{"id":"32092ff7d634bcc4","type":"text","text":"Temple Door","x":20,"y":-280,"width":250,"height":60},
+		{"id":"cb9515bf68fa77d4","type":"text","text":"Board 1:  Temple Entrance","x":-160,"y":-410,"width":250,"height":60},
+		{"id":"dda1b54c94c987f2","type":"text","text":"Board 2: Temple","x":200,"y":-410,"width":250,"height":54},
+		{"id":"841c581f2711d024","x":-230,"y":-40,"width":250,"height":100,"type":"text","text":"Activating the dormant stone statue heads hidden around the map"},
+		{"id":"e18754294e1c560c","x":-574,"y":111,"width":250,"height":60,"type":"text","text":"Head 1"},
+		{"id":"be844e68af015cb3","x":-880,"y":300,"width":250,"height":80,"type":"text","text":"In the center of a small pond behind a gator\n"},
+		{"id":"1087e9ce1845a7d1","x":-574,"y":500,"width":250,"height":60,"type":"text","text":"Gator poops out ball into statue"},
+		{"id":"669bb883a1d8350b","x":-574,"y":315,"width":250,"height":50,"type":"text","text":"Hitting frog turns ball into frog ball"},
+		{"id":"2ea9b61dbe019d15","x":-574,"y":400,"width":250,"height":60,"type":"text","text":"Hit ball into gator"}
+	],
+	"edges":[
+		{"id":"66a5e92816c60fcc","fromNode":"d57fbafb8568d1bc","fromSide":"bottom","toNode":"cb9515bf68fa77d4","toSide":"top"},
+		{"id":"eaa8e9976ec91512","fromNode":"d57fbafb8568d1bc","fromSide":"bottom","toNode":"dda1b54c94c987f2","toSide":"top"},
+		{"id":"9d188983932dc738","fromNode":"cb9515bf68fa77d4","fromSide":"bottom","toNode":"32092ff7d634bcc4","toSide":"left"},
+		{"id":"de09894dab616f74","fromNode":"32092ff7d634bcc4","fromSide":"right","toNode":"dda1b54c94c987f2","toSide":"bottom"},
+		{"id":"5aea36c3256aca1b","fromNode":"32092ff7d634bcc4","fromSide":"bottom","toNode":"841c581f2711d024","toSide":"top","label":"How does it  open?"},
+		{"id":"26c0a1aa55a05d7a","fromNode":"841c581f2711d024","fromSide":"left","toNode":"e18754294e1c560c","toSide":"top"},
+		{"id":"1ae749e684c2efa7","fromNode":"e18754294e1c560c","fromSide":"left","toNode":"be844e68af015cb3","toSide":"top","label":"Where?"},
+		{"id":"5e7bfbc633432825","fromNode":"e18754294e1c560c","fromSide":"bottom","toNode":"669bb883a1d8350b","toSide":"top","label":"Sequence"},
+		{"id":"7092d4598c410f93","fromNode":"669bb883a1d8350b","fromSide":"bottom","toNode":"2ea9b61dbe019d15","toSide":"top"},
+		{"id":"144893557fa06690","fromNode":"2ea9b61dbe019d15","fromSide":"bottom","toNode":"1087e9ce1845a7d1","toSide":"top"}
+	]
+}

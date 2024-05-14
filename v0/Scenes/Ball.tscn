@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://df0awtrgxf7y7"]
+
+[ext_resource type="Script" path="res://Scripts/Ball.gd" id="1_atgge"]
+[ext_resource type="Texture2D" uid="uid://bqg1g6n4lthbe" path="res://Assets/pinball.png" id="2_jgdqc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ygdus"]
+friction = 0.0
+bounce = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfei8"]
+radius = 120.0
+
+[node name="Ball" type="RigidBody2D"]
+collision_layer = 513
+collision_mask = 513
+physics_material_override = SubResource("PhysicsMaterial_ygdus")
+gravity_scale = 5.0
+center_of_mass_mode = 1
+lock_rotation = true
+script = ExtResource("1_atgge")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_hfei8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jgdqc")
