@@ -39,7 +39,7 @@ script = ExtResource("1_xd56e")
 rotation = 0.523599
 physics_material_override = SubResource("PhysicsMaterial_2gh2s")
 script = ExtResource("1_438we")
-flipper_speed = 10.0
+flipper_speed = 16.0
 
 [node name="Flipper Sprite" type="Sprite2D" parent="Flipper Collision"]
 position = Vector2(330, 0)

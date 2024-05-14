@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_auw3e"]
 [ext_resource type="Script" path="res://Scripts/BallCount.gd" id="7_tppn5"]
 [ext_resource type="PackedScene" uid="uid://cw66awwf0s0xk" path="res://Scenes/Edge.tscn" id="9_vl3sy"]
+[ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/button.tscn" id="10_6q0fu"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
-[ext_resource type="Script" path="res://Scenes/Tilt Manager.gd" id="10_lldus"]
 
 [sub_resource type="GDScript" id="GDScript_teahg"]
 script/source = "extends Node2D
@@ -150,14 +150,23 @@ position = Vector2(-1018, -2842)
 rotation = -0.349066
 scale = Vector2(1, 0.07)
 
-[node name="Tilt Manager" type="Node2D" parent="."]
-script = ExtResource("10_lldus")
+[node name="ButtonManager" type="Node2D" parent="."]
 
-[node name="Internal Cooldown" type="Timer" parent="Tilt Manager"]
-one_shot = true
+[node name="Head 1" parent="ButtonManager" instance=ExtResource("10_6q0fu")]
+position = Vector2(0, -1055)
+
+[node name="Status" type="Label" parent="ButtonManager/Head 1"]
+offset_left = 4257.0
+offset_top = -2485.0
+offset_right = 7096.0
+offset_bottom = -1803.0
+theme_override_font_sizes/font_size = 500
+text = "Head1 : Dormant
+"
+script = ExtResource("7_tppn5")
 
 [connection signal="change_ballcount" from="." to="BallHandler/Killbox/Ballcount" method="_on_main_change_ballcount"]
 [connection signal="body_entered" from="BallHandler/Killbox" to="." method="_on_killbox_body_entered"]
 [connection signal="body_entered" from="BallHandler/Killbox" to="BallHandler/Killbox" method="_on_body_entered"]
 [connection signal="change_ballcount" from="BallHandler/Killbox" to="BallHandler/Killbox/Ballcount" method="_on_killbox_change_ballcount"]
-[connection signal="timeout" from="Tilt Manager/Internal Cooldown" to="Tilt Manager" method="_on_internal_cooldown_timeout"]
+[connection signal="change_status" from="ButtonManager/Head 1" to="ButtonManager/Head 1/Status" method="_on_head_1_change_status"]
