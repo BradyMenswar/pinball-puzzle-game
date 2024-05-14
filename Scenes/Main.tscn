@@ -1,7 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="Texture2D" uid="uid://djdj3r3cr7nuo" path="res://Assets/icon.svg" id="1_8myqi"]
-[ext_resource type="PackedScene" uid="uid://cgdj2s264v52a" path="res://Scenes/Flipper.tscn" id="2_d17kv"]
 [ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="3_5o10c"]
 [ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/circle_bouncer.tscn" id="4_7pdk3"]
 [ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/slingshot.tscn" id="5_hv756"]
@@ -9,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_auw3e"]
 [ext_resource type="Script" path="res://Scripts/BallCount.gd" id="7_tppn5"]
 [ext_resource type="PackedScene" uid="uid://cw66awwf0s0xk" path="res://Scenes/Edge.tscn" id="9_vl3sy"]
+[ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://test_flipper.tscn" id="10_cxee4"]
 
 [sub_resource type="GDScript" id="GDScript_teahg"]
 script/source = "extends Node2D
@@ -47,14 +47,6 @@ size = Vector2(1278, 271)
 
 [node name="Main" type="Node2D"]
 script = SubResource("GDScript_teahg")
-
-[node name="Flipper Left" parent="." instance=ExtResource("2_d17kv")]
-position = Vector2(-820, 2000)
-
-[node name="Flipper Right" parent="." instance=ExtResource("2_d17kv")]
-position = Vector2(820, 2000)
-scale = Vector2(-1, 1)
-is_right = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -1327)
@@ -137,6 +129,14 @@ drag_right_margin = 1.0
 drag_bottom_margin = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="Test Flipper" parent="." instance=ExtResource("10_cxee4")]
+position = Vector2(-838, 2004)
+
+[node name="Test Flipper Right" parent="." instance=ExtResource("10_cxee4")]
+position = Vector2(821, 2007)
+scale = Vector2(-1, 1)
+is_right = true
 
 [node name="Ground" type="Node2D" parent="."]
 

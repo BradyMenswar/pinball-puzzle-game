@@ -150,5 +150,8 @@
     }
   },
   "active": "c19f24b18ad94b08",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "TestFlipper.gd",
+    "test_flipper.tscn"
+  ]
 }

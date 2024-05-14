@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt5mjgn3y1pcu"]
+
+[ext_resource type="Script" path="res://TestFlipper.gd" id="1_438we"]
+[ext_resource type="Texture2D" uid="uid://chc0s2ownosnq" path="res://Assets/flipper.png" id="1_cblm4"]
+[ext_resource type="Script" path="res://Scripts/FlipperConfiguration.gd" id="1_xd56e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eoefw"]
+radius = 114.37
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xnlib"]
+radius = 52.65
+
+[sub_resource type="Animation" id="Animation_cy5bq"]
+resource_name = "flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.523599, -0.25, 0, 0.25, 0, -0.523599, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3asj"]
+_data = {
+"flip": SubResource("Animation_cy5bq")
+}
+
+[node name="Test Flipper" type="Node2D"]
+script = ExtResource("1_xd56e")
+
+[node name="Flipper Collision" type="AnimatableBody2D" parent="."]
+rotation = 0.523599
+script = ExtResource("1_438we")
+flipper_speed = 20.0
+
+[node name="Flipper Sprite" type="Sprite2D" parent="Flipper Collision"]
+position = Vector2(330, 0)
+texture = ExtResource("1_cblm4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flipper Collision"]
+polygon = PackedVector2Array(719, -52.75, 719, 52.75, 2.08165e-12, 114.5, 2.08165e-12, -114.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flipper Collision"]
+shape = SubResource("CircleShape2D_eoefw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Flipper Collision"]
+position = Vector2(719, 0)
+shape = SubResource("CircleShape2D_xnlib")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flipper Collision"]
+libraries = {
+"": SubResource("AnimationLibrary_l3asj")
+}
+
+[connection signal="animation_finished" from="Flipper Collision/AnimationPlayer" to="Flipper Collision" method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="Flipper Collision/AnimationPlayer" to="Flipper Collision" method="_on_animation_player_animation_started"]
