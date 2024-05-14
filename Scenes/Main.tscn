@@ -84,6 +84,20 @@ position = Vector2(1500, 600)
 rotation = 0.523599
 scale = Vector2(-1.5, 2)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-32, -662)
+zoom = Vector2(0.25, 0.25)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 1.0
+drag_top_margin = 0.1
+drag_right_margin = 1.0
+drag_bottom_margin = 0.1
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
 [node name="BallHandler" type="Node2D" parent="."]
 script = ExtResource("5_ygwu0")
 
@@ -115,20 +129,6 @@ script = ExtResource("7_tppn5")
 light_mask = 5
 visibility_layer = 5
 position = Vector2(1065, -379)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-32, -662)
-zoom = Vector2(0.09, 0.09)
-position_smoothing_enabled = true
-position_smoothing_speed = 2.5
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 1.0
-drag_top_margin = 0.1
-drag_right_margin = 1.0
-drag_bottom_margin = 0.1
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="Test Flipper" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(-838, 2004)

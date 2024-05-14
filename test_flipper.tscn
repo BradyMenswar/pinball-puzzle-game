@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt5mjgn3y1pcu"]
+[gd_scene load_steps=9 format=3 uid="uid://bt5mjgn3y1pcu"]
 
 [ext_resource type="Script" path="res://TestFlipper.gd" id="1_438we"]
 [ext_resource type="Texture2D" uid="uid://chc0s2ownosnq" path="res://Assets/flipper.png" id="1_cblm4"]
 [ext_resource type="Script" path="res://Scripts/FlipperConfiguration.gd" id="1_xd56e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2gh2s"]
+friction = 0.0
+bounce = 0.05
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eoefw"]
 radius = 114.37
@@ -34,8 +38,9 @@ script = ExtResource("1_xd56e")
 
 [node name="Flipper Collision" type="AnimatableBody2D" parent="."]
 rotation = 0.523599
+physics_material_override = SubResource("PhysicsMaterial_2gh2s")
 script = ExtResource("1_438we")
-flipper_speed = 20.0
+flipper_speed = 10.0
 
 [node name="Flipper Sprite" type="Sprite2D" parent="Flipper Collision"]
 position = Vector2(330, 0)
