@@ -151,6 +151,8 @@
   },
   "active": "c19f24b18ad94b08",
   "lastOpenFiles": [
+    "Scripts/TestBounce.gd",
+    "Scenes/TestBounce.gd",
     "TestFlipper.gd",
     "test_flipper.tscn"
   ]
