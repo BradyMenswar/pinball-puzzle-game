@@ -151,6 +151,10 @@
   },
   "active": "c19f24b18ad94b08",
   "lastOpenFiles": [
+    "Scenes/Tilt Manager.gd",
+    "Scripts/FlipperRigidbody.gd",
+    "Scripts/Bounce.gd",
+    "Scenes/flipper_rigidbody.tscn",
     "Scripts/TestBounce.gd",
     "Scenes/TestBounce.gd",
     "TestFlipper.gd",
