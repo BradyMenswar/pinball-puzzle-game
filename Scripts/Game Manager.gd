@@ -9,6 +9,7 @@ func _ready():
 	Events.connect("game_over", on_game_over)
 	lives = max_lives
 	Events.emit_signal("lives_changed", lives)
+	Events.connect("spawn_new_ball",spawn_ball)
 
 func on_ball_lost():
 	lives -= 1
@@ -22,8 +23,13 @@ func on_game_over():
 
 func _input(event):
 	if event.is_action_pressed("reset_ball"):
-		#Should make a new ball scene, turn it into a node (instance) then make that node a child of main
-		var scene = load("res://Scenes/Ball.tscn")
-		var instance = scene.instantiate()
-		#Attempting to move ball
-		instance.move_body(Vector2(1160, 0))
+		spawn_ball(1160,0,0,0)
+		
+func spawn_ball(pos_x, pos_y, force_x, force_y):
+	var scene = load("res://Scenes/Ball.tscn")
+	var instance = scene.instantiate()
+	add_child(instance)
+	instance.position = Vector2(pos_x,pos_y)
+	instance.apply_central_impulse(Vector2(force_x,force_y))
+	
+	
