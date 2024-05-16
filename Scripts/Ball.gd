@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var reset_state = false
 var reset_location
+var is_frog = false
 @export var max_speed = 10000
 
 func _integrate_forces(state):
@@ -18,3 +19,8 @@ func _physics_process(_delta):
 func move_body(target_location: Vector2):
 	reset_location = target_location
 	reset_state = true
+	
+func change_to_frog():
+	is_frog = true
+	get_node("Sprite2D").self_modulate = Color(0,1,0)
+	

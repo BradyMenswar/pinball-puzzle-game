@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=13 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="3_5o10c"]
 [ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/CircleBouncer.tscn" id="4_7pdk3"]
-[ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/Slingshot.tscn" id="5_hv756"]
+[ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/slingshot.tscn" id="5_hv756"]
 [ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_opnyw"]
 [ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_auw3e"]
 [ext_resource type="PackedScene" uid="uid://cw66awwf0s0xk" path="res://Scenes/Edge.tscn" id="9_vl3sy"]
-[ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/Gator.tscn" id="10_4hmlo"]
+[ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/gator.tscn" id="10_4hmlo"]
 [ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/HeadOne.tscn" id="10_6q0fu"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
+[ext_resource type="PackedScene" uid="uid://canewcwkp887n" path="res://Scenes/FrogScene.tscn" id="11_inv5c"]
 [ext_resource type="Script" path="res://Scripts/TiltManager.gd" id="11_uf7u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
@@ -26,10 +27,6 @@ scale = Vector2(0.75, 0.75)
 
 [node name="CircleBouncer4" parent="." instance=ExtResource("4_7pdk3")]
 position = Vector2(-2641, -3254)
-scale = Vector2(0.75, 0.75)
-
-[node name="CircleBouncer5" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(2641, -3254)
 scale = Vector2(0.75, 0.75)
 
 [node name="Slingshot Left" parent="." instance=ExtResource("5_hv756")]
@@ -139,6 +136,9 @@ one_shot = true
 
 [node name="Gator" parent="." instance=ExtResource("10_4hmlo")]
 position = Vector2(0, -1186)
+
+[node name="FrogScene" parent="." instance=ExtResource("11_inv5c")]
+position = Vector2(-128, -256)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]
 [connection signal="timeout" from="Tilt Manager/Internal Cooldown" to="Tilt Manager" method="_on_internal_cooldown_timeout"]
