@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=15 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="Texture2D" uid="uid://djdj3r3cr7nuo" path="res://Assets/icon.svg" id="1_8myqi"]
 [ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="3_5o10c"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cw66awwf0s0xk" path="res://Scenes/Edge.tscn" id="9_vl3sy"]
 [ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/button.tscn" id="10_6q0fu"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
+[ext_resource type="Script" path="res://Scripts/Label.gd" id="11_p0ad5"]
 [ext_resource type="Script" path="res://Scripts/Tilt Manager.gd" id="11_uf7u4"]
 
 [sub_resource type="GDScript" id="GDScript_teahg"]
@@ -41,11 +42,6 @@ size = Vector2(1278, 271)
 
 [node name="Main" type="Node2D"]
 script = SubResource("GDScript_teahg")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -1327)
-scale = Vector2(20, 20)
-texture = ExtResource("1_8myqi")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(33, -5391)
@@ -79,7 +75,7 @@ scale = Vector2(-1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-32, -662)
-zoom = Vector2(0.15, 0.15)
+zoom = Vector2(0.12, 0.12)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
 drag_horizontal_enabled = true
@@ -109,10 +105,10 @@ position = Vector2(41, 2693)
 shape = SubResource("RectangleShape2D_wikol")
 
 [node name="Ballcount" type="Label" parent="BallHandler/Killbox"]
-offset_left = -5593.0
-offset_top = -3803.0
-offset_right = -2754.0
-offset_bottom = -3121.0
+offset_left = -6903.0
+offset_top = -2533.0
+offset_right = -4064.0
+offset_bottom = -1851.0
 theme_override_font_sizes/font_size = 500
 text = "Balls Lost: 0
 "
@@ -155,17 +151,17 @@ scale = Vector2(1, 0.07)
 position = Vector2(5282, 242)
 
 [node name="Head 1" parent="ButtonManager" instance=ExtResource("10_6q0fu")]
-position = Vector2(0, -1055)
+position = Vector2(-5274, -3852)
 
-[node name="Status" type="Label" parent="ButtonManager/Head 1"]
-offset_left = 4257.0
-offset_top = -2485.0
-offset_right = 7096.0
-offset_bottom = -1803.0
-theme_override_font_sizes/font_size = 500
+[node name="Label" type="Label" parent="ButtonManager"]
+offset_left = -11029.0
+offset_top = -2173.0
+offset_right = -9382.0
+offset_bottom = -1203.0
+theme_override_font_sizes/font_size = 200
 text = "Head1 : Dormant
 "
-script = ExtResource("7_tppn5")
+script = ExtResource("11_p0ad5")
 
 [node name="Tilt Manager" type="Node2D" parent="."]
 script = ExtResource("11_uf7u4")
@@ -176,5 +172,5 @@ script = ExtResource("11_uf7u4")
 [connection signal="body_entered" from="BallHandler/Killbox" to="." method="_on_killbox_body_entered"]
 [connection signal="body_entered" from="BallHandler/Killbox" to="BallHandler/Killbox" method="_on_body_entered"]
 [connection signal="change_ballcount" from="BallHandler/Killbox" to="BallHandler/Killbox/Ballcount" method="_on_killbox_change_ballcount"]
-[connection signal="change_status" from="ButtonManager/Head 1" to="ButtonManager/Head 1/Status" method="_on_head_1_change_status"]
+[connection signal="change_status" from="ButtonManager/Head 1" to="ButtonManager/Label" method="_on_head_1_change_status"]
 [connection signal="timeout" from="Tilt Manager/Internal Cooldown" to="Tilt Manager" method="_on_internal_cooldown_timeout"]
