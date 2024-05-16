@@ -1,6 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="Texture2D" uid="uid://djdj3r3cr7nuo" path="res://Assets/icon.svg" id="1_8myqi"]
+[ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_24bvw"]
 [ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="3_5o10c"]
 [ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/circle_bouncer.tscn" id="4_7pdk3"]
 [ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/slingshot.tscn" id="5_hv756"]
@@ -13,35 +14,11 @@
 [ext_resource type="Script" path="res://Scripts/Label.gd" id="11_p0ad5"]
 [ext_resource type="Script" path="res://Scripts/Tilt Manager.gd" id="11_uf7u4"]
 
-[sub_resource type="GDScript" id="GDScript_teahg"]
-script/source = "extends Node2D
-# Called when the node enters the scene tree for the first time.
-
-signal change_ballcount
-var balls_lost = 0
-
-func _on_killbox_body_entered(body):
-	if body.has_method(\"is_ball\"):
-		body.queue_free()
-		balls_lost += 1
-		emit_signal(\"change_ballcount\",balls_lost)
-
-func _input(event):
-	if event.is_action_pressed(\"reset_ball\"):
-		#Should make a new ball scene, turn it into a node (instance) then make that node a child of main
-		var scene = load(\"res://Scenes/Ball.tscn\")
-		var instance = scene.instantiate()
-		#Attempting to move ball
-		instance.move_body(Vector2(1160, 0))
-		
-		
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
 size = Vector2(1278, 271)
 
 [node name="Main" type="Node2D"]
-script = SubResource("GDScript_teahg")
+script = ExtResource("1_24bvw")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(33, -5391)
@@ -110,8 +87,7 @@ offset_top = -2533.0
 offset_right = -4064.0
 offset_bottom = -1851.0
 theme_override_font_sizes/font_size = 500
-text = "Balls Lost: 0
-"
+text = "Lives Left: 3"
 script = ExtResource("7_tppn5")
 
 [node name="Ball" parent="BallHandler" instance=ExtResource("3_5o10c")]
@@ -147,13 +123,13 @@ position = Vector2(-1018, -2842)
 rotation = -0.349066
 scale = Vector2(1, 0.07)
 
-[node name="ButtonManager" type="Node2D" parent="."]
+[node name="Button Manager" type="Node2D" parent="."]
 position = Vector2(5282, 242)
 
-[node name="Head 1" parent="ButtonManager" instance=ExtResource("10_6q0fu")]
+[node name="Head 1" parent="Button Manager" instance=ExtResource("10_6q0fu")]
 position = Vector2(-5274, -3852)
 
-[node name="Label" type="Label" parent="ButtonManager"]
+[node name="Label" type="Label" parent="Button Manager"]
 offset_left = -11029.0
 offset_top = -2173.0
 offset_right = -9382.0
@@ -168,9 +144,7 @@ script = ExtResource("11_uf7u4")
 
 [node name="Internal Cooldown" type="Timer" parent="Tilt Manager"]
 
-[connection signal="change_ballcount" from="." to="BallHandler/Killbox/Ballcount" method="_on_main_change_ballcount"]
 [connection signal="body_entered" from="BallHandler/Killbox" to="." method="_on_killbox_body_entered"]
 [connection signal="body_entered" from="BallHandler/Killbox" to="BallHandler/Killbox" method="_on_body_entered"]
-[connection signal="change_ballcount" from="BallHandler/Killbox" to="BallHandler/Killbox/Ballcount" method="_on_killbox_change_ballcount"]
-[connection signal="change_status" from="ButtonManager/Head 1" to="ButtonManager/Label" method="_on_head_1_change_status"]
+[connection signal="change_status" from="Button Manager/Head 1" to="Button Manager/Label" method="_on_head_1_change_status"]
 [connection signal="timeout" from="Tilt Manager/Internal Cooldown" to="Tilt Manager" method="_on_internal_cooldown_timeout"]

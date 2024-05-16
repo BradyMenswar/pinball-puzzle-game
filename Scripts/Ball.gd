@@ -18,7 +18,3 @@ func _physics_process(_delta):
 func move_body(target_location: Vector2):
 	reset_location = target_location
 	reset_state = true
-
-#Used in main.gd for killbox confirmation	
-func is_ball():
-	pass
