@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var impulse_strength: float = 1000
-@export var internal_cooldown := 1
+@export var internal_cooldown := 1.0
 var cooldown_available = true
 @onready var cooldown_timer = $"Internal Cooldown"
 

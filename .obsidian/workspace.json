@@ -151,13 +151,25 @@
   },
   "active": "c19f24b18ad94b08",
   "lastOpenFiles": [
-    "Scenes/Tilt Manager.gd",
-    "Scripts/FlipperRigidbody.gd",
-    "Scripts/Bounce.gd",
-    "Scenes/flipper_rigidbody.tscn",
-    "Scripts/TestBounce.gd",
-    "Scenes/TestBounce.gd",
-    "TestFlipper.gd",
-    "test_flipper.tscn"
+    "Scripts/GameManager.gd",
+    "Scenes/HeadOne.tscn",
+    "Scripts/HeadOne.gd",
+    "Scenes/GameUI.gd",
+    "Scenes/LevelOne.gd",
+    "Scripts/Game Manager.gd",
+    "Scripts/Events.gd",
+    "Scripts/buttoncollision.gd",
+    "Scripts/Label.gd",
+    "Scripts/Main.gd",
+    "Scripts/Tilt Manager.gd",
+    "v0/Assets/slingshot.png",
+    "v0/Assets/pinball.png",
+    "v0/Assets/icon.svg",
+    "v0/Assets/flipper.png",
+    "v0/Assets/ezgif-7-285340746b.png",
+    "v0/Assets/button.png",
+    "v0/pinball planning.canvas",
+    "Assets/ezgif-7-285340746b.png",
+    "Assets/button.png"
   ]
 }

@@ -1,23 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=12 format=3 uid="uid://bhq64j7giowbb"]
 
-[ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_24bvw"]
 [ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="3_5o10c"]
-[ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/circle_bouncer.tscn" id="4_7pdk3"]
-[ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/slingshot.tscn" id="5_hv756"]
+[ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/CircleBouncer.tscn" id="4_7pdk3"]
+[ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/Slingshot.tscn" id="5_hv756"]
+[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_opnyw"]
 [ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_auw3e"]
-[ext_resource type="Script" path="res://Scripts/BallCount.gd" id="7_tppn5"]
 [ext_resource type="PackedScene" uid="uid://cw66awwf0s0xk" path="res://Scenes/Edge.tscn" id="9_vl3sy"]
-[ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/button.tscn" id="10_6q0fu"]
+[ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/Gator.tscn" id="10_4hmlo"]
+[ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/HeadOne.tscn" id="10_6q0fu"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
-[ext_resource type="Script" path="res://Scripts/Label.gd" id="11_p0ad5"]
-[ext_resource type="Script" path="res://Scripts/Tilt Manager.gd" id="11_uf7u4"]
-[ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/gator.tscn" id="12_oj126"]
+[ext_resource type="Script" path="res://Scripts/TiltManager.gd" id="11_uf7u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
 size = Vector2(1278, 271)
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_24bvw")
 
 [node name="CircleBouncer" parent="." instance=ExtResource("4_7pdk3")]
 position = Vector2(-634, -1838)
@@ -35,11 +32,11 @@ scale = Vector2(0.75, 0.75)
 position = Vector2(2641, -3254)
 scale = Vector2(0.75, 0.75)
 
-[node name="Slingshot" parent="." instance=ExtResource("5_hv756")]
+[node name="Slingshot Left" parent="." instance=ExtResource("5_hv756")]
 position = Vector2(-1554, 798)
 rotation = -0.523598
 
-[node name="Slingshot2" parent="." instance=ExtResource("5_hv756")]
+[node name="Slingshot Right" parent="." instance=ExtResource("5_hv756")]
 position = Vector2(1554, 792)
 rotation = 0.523599
 scale = Vector2(-1, 1)
@@ -58,40 +55,50 @@ drag_bottom_margin = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="BallHandler" type="Node2D" parent="."]
+[node name="Game UI" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_opnyw")
 
-[node name="Killbox" type="Area2D" parent="BallHandler"]
+[node name="Head 1" type="Label" parent="Camera2D/Game UI"]
+layout_mode = 0
+offset_left = -6053.0
+offset_top = -1269.0
+offset_right = -4069.0
+offset_bottom = -299.0
+theme_override_font_sizes/font_size = 200
+text = "Head One : Dormant
+"
+
+[node name="Lives" type="Label" parent="Camera2D/Game UI"]
+layout_mode = 0
+offset_left = -6871.0
+offset_top = -1871.0
+offset_right = -4032.0
+offset_bottom = -1189.0
+theme_override_font_sizes/font_size = 500
+text = "Lives Left: 3"
+
+[node name="Killbox" type="Area2D" parent="."]
 script = ExtResource("7_auw3e")
 
-[node name="ColorRect" type="ColorRect" parent="BallHandler/Killbox"]
+[node name="ColorRect" type="ColorRect" parent="Killbox"]
 offset_left = -592.0
 offset_top = 2572.0
 offset_right = 673.0
 offset_bottom = 2827.0
 color = Color(0.737492, 0.327653, 0.296651, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BallHandler/Killbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
 position = Vector2(41, 2693)
 shape = SubResource("RectangleShape2D_wikol")
 
-[node name="Ballcount" type="Label" parent="BallHandler/Killbox"]
-offset_left = -6903.0
-offset_top = -2533.0
-offset_right = -4064.0
-offset_bottom = -1851.0
-theme_override_font_sizes/font_size = 500
-text = "Lives Left: 3"
-script = ExtResource("7_tppn5")
-
-[node name="Ball" parent="BallHandler" instance=ExtResource("3_5o10c")]
-light_mask = 5
-visibility_layer = 5
-position = Vector2(1065, -379)
-
-[node name="Test Flipper" parent="." instance=ExtResource("10_cxee4")]
+[node name="Flipper Left" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(-838, 2004)
 
-[node name="Test Flipper Right" parent="." instance=ExtResource("10_cxee4")]
+[node name="Flipper Right" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(821, 2007)
 scale = Vector2(-1, 1)
 is_right = true
@@ -116,31 +123,22 @@ position = Vector2(-1018, -2842)
 rotation = -0.349066
 scale = Vector2(1, 0.07)
 
-[node name="Button Manager" type="Node2D" parent="."]
-position = Vector2(5282, 242)
+[node name="Head 1" parent="." instance=ExtResource("10_6q0fu")]
+position = Vector2(8, -3610)
 
-[node name="Head 1" parent="Button Manager" instance=ExtResource("10_6q0fu")]
-position = Vector2(-5292, -4867)
-
-[node name="Label" type="Label" parent="Button Manager"]
-offset_left = -11029.0
-offset_top = -2173.0
-offset_right = -9382.0
-offset_bottom = -1203.0
-theme_override_font_sizes/font_size = 200
-text = "Head1 : Dormant
-"
-script = ExtResource("11_p0ad5")
+[node name="Ball" parent="." instance=ExtResource("3_5o10c")]
+light_mask = 5
+visibility_layer = 5
+position = Vector2(1065, -379)
 
 [node name="Tilt Manager" type="Node2D" parent="."]
 script = ExtResource("11_uf7u4")
 
 [node name="Internal Cooldown" type="Timer" parent="Tilt Manager"]
+one_shot = true
 
-[node name="Gator" parent="." instance=ExtResource("12_oj126")]
-position = Vector2(-9, -1221)
+[node name="Gator" parent="." instance=ExtResource("10_4hmlo")]
+position = Vector2(0, -1186)
 
-[connection signal="body_entered" from="BallHandler/Killbox" to="." method="_on_killbox_body_entered"]
-[connection signal="body_entered" from="BallHandler/Killbox" to="BallHandler/Killbox" method="_on_body_entered"]
-[connection signal="change_status" from="Button Manager/Head 1" to="Button Manager/Label" method="_on_head_1_change_status"]
+[connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]
 [connection signal="timeout" from="Tilt Manager/Internal Cooldown" to="Tilt Manager" method="_on_internal_cooldown_timeout"]

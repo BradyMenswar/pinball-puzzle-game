@@ -3,20 +3,12 @@ extends Node2D
 @export var active = false
 @export var destroy_self = false
 @export var destroy_ball = true
-signal change_status
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+@onready var bottom_collision = $Collision/Bottom
 
 func _on_mouth_body_entered(body):
-	if active == false:
-		emit_signal("change_status")
+	if active == false and body.is_in_group("Ball"):
+		bottom_collision.set_deferred("disabled", false)
+		Events.emit_signal("head_one_activated")
 		if destroy_ball:
 			body.queue_free()
 			var sprite_ball = Sprite2D.new()
@@ -26,4 +18,3 @@ func _on_mouth_body_entered(body):
 		active = true;
 		if destroy_self:
 			queue_free()
-		

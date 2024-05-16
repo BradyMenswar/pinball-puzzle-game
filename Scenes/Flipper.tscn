@@ -35,7 +35,7 @@ script = ExtResource("1_xd56e")
 [node name="Flipper Collision" type="AnimatableBody2D" parent="."]
 rotation = 0.523599
 script = ExtResource("1_438we")
-flipper_speed = 16.0
+flipper_speed = 10.0
 
 [node name="Flipper Sprite" type="Sprite2D" parent="Flipper Collision"]
 position = Vector2(330, 0)
