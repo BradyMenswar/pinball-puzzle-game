@@ -11,7 +11,7 @@ size = Vector2(638, 312)
 size = Vector2(155, 277)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn3x8"]
-size = Vector2(662, 144)
+size = Vector2(662, 120)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vut4j"]
 radius = 142.014
@@ -26,6 +26,7 @@ scale = Vector2(1.75, 1.75)
 texture = ExtResource("1_6ao07")
 
 [node name="Collision" type="StaticBody2D" parent="."]
+disable_mode = 1
 
 [node name="Top" type="CollisionShape2D" parent="Collision"]
 position = Vector2(44.375, -327)
@@ -40,9 +41,8 @@ position = Vector2(285.875, -32)
 shape = SubResource("RectangleShape2D_8sfut")
 
 [node name="Bottom" type="CollisionShape2D" parent="Collision"]
-position = Vector2(37, 228)
+position = Vector2(29, 210)
 shape = SubResource("RectangleShape2D_wn3x8")
-disabled = true
 script = ExtResource("3_83p0l")
 
 [node name="Mouth" type="Area2D" parent="."]
