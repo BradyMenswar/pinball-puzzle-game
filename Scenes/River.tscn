@@ -1,17 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bodl34klkkp72"]
+[gd_scene load_steps=5 format=3 uid="uid://bodl34klkkp72"]
 
-[ext_resource type="Script" path="res://Scenes/River.gd" id="1_1auq1"]
-[ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="2_42nn0"]
-[ext_resource type="Script" path="res://Scenes/Magnet.gd" id="2_bexv6"]
+[ext_resource type="Script" path="res://Scripts/River.gd" id="1_1auq1"]
+[ext_resource type="Script" path="res://Scripts/Magnet.gd" id="2_bexv6"]
 
 [sub_resource type="Curve2D" id="Curve2D_5xyh6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2188, 1253, 0, 0, 0, 0, -1927, 391, 0, 0, 0, 0, -1474, -152, 0, 0, 0, 0, -630, -278, 0, 0, 0, 0, -10, 59, 0, 0, 0, 0, 919, 90, 0, 0, 0, 0, 1498, -785, 0, 0, 0, 0, 1912, -1759)
+"points": PackedVector2Array(0, 0, 0, 0, 1776, -1831, 0, 0, 0, 0, 967, 238, 0, 0, 0, 0, -565, -497, 0, 0, 0, 0, -1556, 207, 0, 0, 0, 0, -2221, 1330)
 }
-point_count = 8
+point_count = 5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_546dg"]
-radius = 180.07
+radius = 387.21
 
 [node name="River" type="Area2D"]
 script = ExtResource("1_1auq1")
@@ -19,23 +18,25 @@ script = ExtResource("1_1auq1")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(95.0339, -38.5297)
 scale = Vector2(4.32839, 4.82466)
-polygon = PackedVector2Array(-13, -13, -161, -82, -377, -64, -493, 63, -568.903, 258.988, -484.345, 275.57, -440, 123, -345, 5, -172, -16, 2, 70, 203.67, 69.5447, 373.017, -147.258, 461.965, -341.469, 378.562, -371.108, 304.863, -209.439, 170.864, -4.24286)
+polygon = PackedVector2Array(2.9956, -128.189, -159.651, -211.097, -377, -64, -493, 63, -625.876, 248.21, -436.198, 322.412, -347.25, 145.82, -258.302, 66.8502, -172, -16, 2, 70, 246.504, 136.907, 373.017, -147.258, 461.965, -341.469, 311.193, -405.515, 257.363, -250.685, 163.794, -53.1582)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(64.6001, -28.0002)
+position = Vector2(53, -12)
 scale = Vector2(4.25262, 4.71795)
 color = Color(0.211765, 0.560784, 1, 1)
-polygon = PackedVector2Array(-572, 260, -486, 280, -440, 121, -344, 4, -172, -16, 1, 68, 214, 66, 385, -153, 477, -351, 392, -383, 322, -225, 179, -8, -14, -14, -162, -82, -379, -64, -494, 63)
+polygon = PackedVector2Array(-625.168, 246.717, -434.226, 325.777, -339.932, 147.734, -233.879, 52.9892, -172, -16, 1, 68, 260.874, 156.848, 385, -153, 477, -351, 332.971, -420.946, 274.419, -259.435, 176.691, -60.8315, -159.807, -214.924, -260.451, -143.918, -379, -64, -494, 63)
 
 [node name="Current" type="Path2D" parent="."]
+position = Vector2(12, -12)
 curve = SubResource("Curve2D_5xyh6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Current"]
-position = Vector2(-2188, 1253)
+position = Vector2(1776, -1831)
 rotation = -1.27679
+rotates = false
+loop = false
 
 [node name="Magnet" type="Area2D" parent="Current/PathFollow2D"]
-scale = Vector2(1, 1)
 script = ExtResource("2_bexv6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Current/PathFollow2D/Magnet"]
@@ -44,9 +45,6 @@ debug_color = Color(0.968627, 0, 0.454902, 0.419608)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.165, 0.165)
-
-[node name="Ball" parent="." instance=ExtResource("2_42nn0")]
-position = Vector2(-2187, 821)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Current/PathFollow2D/Magnet" to="Current/PathFollow2D/Magnet" method="_on_body_entered"]
