@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=14 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="PackedScene" uid="uid://df0awtrgxf7y7" path="res://Scenes/Ball.tscn" id="3_5o10c"]
 [ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/CircleBouncer.tscn" id="4_7pdk3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/gator.tscn" id="10_4hmlo"]
 [ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/HeadOne.tscn" id="10_6q0fu"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
+[ext_resource type="PackedScene" uid="uid://bodl34klkkp72" path="res://Scenes/River.tscn" id="11_i627s"]
 [ext_resource type="PackedScene" uid="uid://canewcwkp887n" path="res://Scenes/FrogScene.tscn" id="11_inv5c"]
 [ext_resource type="Script" path="res://Scripts/TiltManager.gd" id="11_uf7u4"]
 
@@ -18,15 +19,15 @@ size = Vector2(1278, 271)
 [node name="Main" type="Node2D"]
 
 [node name="CircleBouncer" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(-634, -1838)
+position = Vector2(-1980, -1940)
 scale = Vector2(0.75, 0.75)
 
 [node name="CircleBouncer2" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(634, -1838)
+position = Vector2(-712, -1940)
 scale = Vector2(0.75, 0.75)
 
 [node name="CircleBouncer4" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(-2641, -3254)
+position = Vector2(1703, -2810)
 scale = Vector2(0.75, 0.75)
 
 [node name="Slingshot Left" parent="." instance=ExtResource("5_hv756")]
@@ -111,17 +112,17 @@ polygon = PackedVector2Array(-782, 1906, -828, 1887, -898, 1907, -945, 1952, -95
 polygon = PackedVector2Array(-825, 1890, -782, 1906, -1874, 1164, -2051, -194, -3076, -700, -3393, -1688, -3972, -9297, 4049, -9288, 3435, -1740, 3101, -710, 2131, -225, 1894, 1148, 767, 1909, 815, 1897, 887, 1914, 934, 1971, 930, 2043, 2570, 1063, 3577, -1727, 4213, -9408, -4148, -9439, -3563, -1666, -2550, 1039, -934, 2066, -956, 2010, -942, 1952, -897, 1907)
 
 [node name="Wall 1" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(1018, -2842)
+position = Vector2(-328, -2944)
 rotation = 0.349066
 scale = Vector2(1, 0.07)
 
 [node name="Wall 2" parent="Ground" instance=ExtResource("9_vl3sy")]
-position = Vector2(-1018, -2842)
+position = Vector2(-2364, -2944)
 rotation = -0.349066
 scale = Vector2(1, 0.07)
 
 [node name="Head 1" parent="." instance=ExtResource("10_6q0fu")]
-position = Vector2(8, -3610)
+position = Vector2(-1338, -3712)
 
 [node name="Ball" parent="." instance=ExtResource("3_5o10c")]
 light_mask = 5
@@ -135,7 +136,10 @@ script = ExtResource("11_uf7u4")
 one_shot = true
 
 [node name="Gator" parent="." instance=ExtResource("10_4hmlo")]
-position = Vector2(0, -1186)
+position = Vector2(-1346, -1288)
+
+[node name="River" parent="." instance=ExtResource("11_i627s")]
+position = Vector2(1569, -1018)
 
 [node name="FrogScene" parent="." instance=ExtResource("11_inv5c")]
 position = Vector2(-128, -256)
