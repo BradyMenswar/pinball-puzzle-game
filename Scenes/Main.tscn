@@ -87,25 +87,16 @@ text = "Lives Left: 3"
 
 [node name="Tilt Bar" type="TextureProgressBar" parent="Camera2D/Game UI"]
 layout_mode = 0
-offset_left = -6474.0
-offset_top = -2101.0
-offset_right = -5587.0
-offset_bottom = -1992.0
-scale = Vector2(2.15844, 2.15844)
+offset_left = -6885.0
+offset_top = -2253.0
+offset_right = -5821.0
+offset_bottom = -2122.0
+scale = Vector2(3.47119, 3.49517)
 texture_under = ExtResource("4_epjgh")
 texture_over = ExtResource("5_cvw1d")
 texture_progress = ExtResource("6_gx05l")
 script = ExtResource("4_st18g")
 gradient = SubResource("Gradient_s5je1")
-
-[node name="Label" type="Label" parent="Camera2D/Game UI"]
-layout_mode = 0
-offset_left = -6837.0
-offset_top = -2103.0
-offset_right = -6522.0
-offset_bottom = -1862.0
-theme_override_font_sizes/font_size = 176
-text = "Tilt:"
 
 [node name="Killbox" type="Area2D" parent="."]
 script = ExtResource("7_auw3e")
