@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bodl34klkkp72"]
+[gd_scene load_steps=4 format=3 uid="uid://bodl34klkkp72"]
 
 [ext_resource type="Script" path="res://Scripts/River.gd" id="1_1auq1"]
-[ext_resource type="Script" path="res://Scripts/Magnet.gd" id="2_bexv6"]
+[ext_resource type="Texture2D" uid="uid://currbox0e6qy6" path="res://Assets/frog.png" id="2_jvhfw"]
 
 [sub_resource type="Curve2D" id="Curve2D_5xyh6"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1776, -1831, 0, 0, 0, 0, 967, 238, 0, 0, 0, 0, -565, -497, 0, 0, 0, 0, -1556, 207, 0, 0, 0, 0, -2221, 1330)
 }
 point_count = 5
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_546dg"]
-radius = 387.21
 
 [node name="River" type="Area2D"]
 script = ExtResource("1_1auq1")
@@ -36,16 +33,11 @@ rotation = -1.27679
 rotates = false
 loop = false
 
-[node name="Magnet" type="Area2D" parent="Current/PathFollow2D"]
-script = ExtResource("2_bexv6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current/PathFollow2D/Magnet"]
-shape = SubResource("CircleShape2D_546dg")
-debug_color = Color(0.968627, 0, 0.454902, 0.419608)
+[node name="Sprite2D" type="Sprite2D" parent="Current/PathFollow2D"]
+texture = ExtResource("2_jvhfw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.165, 0.165)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="Current/PathFollow2D/Magnet" to="Current/PathFollow2D/Magnet" method="_on_body_entered"]
-[connection signal="body_exited" from="Current/PathFollow2D/Magnet" to="Current/PathFollow2D/Magnet" method="_on_body_exited"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -5,7 +5,6 @@ var movespeed = 1000
 func _ready():
 	path_follow = get_node("Path2D/PathFollow2D")
 	spawn_frog()
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +15,6 @@ func _process(delta):
 		path_follow.progress = 0;
 		Events.emit_signal("frog_at_end")
 		spawn_frog()
-	pass
 
 
 func spawn_frog():
@@ -24,4 +22,3 @@ func spawn_frog():
 	var instance = scene.instantiate()
 	path_follow.add_child(instance)
 	path_follow.progress = 0
-	pass # Replace with function body.

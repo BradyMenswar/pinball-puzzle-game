@@ -29,7 +29,7 @@ _data = {
 "flip": SubResource("Animation_cy5bq")
 }
 
-[node name="Test Flipper" type="Node2D"]
+[node name="Flipper" type="Node2D"]
 script = ExtResource("1_xd56e")
 
 [node name="Flipper Collision" type="AnimatableBody2D" parent="."]
@@ -56,5 +56,8 @@ libraries = {
 "": SubResource("AnimationLibrary_l3asj")
 }
 
+[node name="Tilt Maxed" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="Flipper Collision/AnimationPlayer" to="Flipper Collision" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="Flipper Collision/AnimationPlayer" to="Flipper Collision" method="_on_animation_player_animation_started"]
+[connection signal="timeout" from="Tilt Maxed" to="Flipper Collision" method="_on_tilt_maxed_timeout"]

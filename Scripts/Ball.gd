@@ -4,6 +4,13 @@ var reset_state = false
 var reset_location
 var is_frog = false
 @export var max_speed = 10000
+var base_gravity := 5.0
+
+func _ready():
+	update_gravity(base_gravity)
+	
+func update_gravity(new_gravity):
+	gravity_scale = new_gravity
 
 func _integrate_forces(state):
 	if reset_state:

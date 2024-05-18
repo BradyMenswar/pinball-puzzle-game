@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvmuxxy37jsin"]
+
+[ext_resource type="Script" path="res://Scripts/TiltManager.gd" id="1_idt0v"]
+
+[node name="Tilt Manager" type="Node2D"]
+script = ExtResource("1_idt0v")
+
+[node name="Internal Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Decay" type="Timer" parent="."]
+
+[connection signal="timeout" from="Internal Cooldown" to="." method="_on_internal_cooldown_timeout"]
+[connection signal="timeout" from="Decay" to="." method="_on_decay_timeout"]

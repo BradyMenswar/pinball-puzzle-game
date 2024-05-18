@@ -2,6 +2,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 
 var max_lives = 3
+@export var tilt_lockout := 5.0
 var lives = max_lives
 @export var is_head_one_activated := false
 
