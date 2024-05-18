@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=18 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/CircleBouncer.tscn" id="4_7pdk3"]
 [ext_resource type="Texture2D" uid="uid://cciw488goen8o" path="res://Assets/Under.svg" id="4_epjgh"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/HeadOne.tscn" id="10_6q0fu"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
 [ext_resource type="PackedScene" uid="uid://canewcwkp887n" path="res://Scenes/FrogScene.tscn" id="11_inv5c"]
+[ext_resource type="PackedScene" uid="uid://cst6ml51bv8pt" path="res://Scenes/river_scene.tscn" id="15_iilp8"]
 
 [sub_resource type="Gradient" id="Gradient_s5je1"]
 offsets = PackedFloat32Array(0, 0.483871, 0.922201)
@@ -33,7 +34,7 @@ position = Vector2(-712, -1940)
 scale = Vector2(0.75, 0.75)
 
 [node name="CircleBouncer4" parent="." instance=ExtResource("4_7pdk3")]
-position = Vector2(1703, -2810)
+position = Vector2(1128, -2951)
 scale = Vector2(0.75, 0.75)
 
 [node name="Slingshot Left" parent="." instance=ExtResource("5_hv756")]
@@ -150,6 +151,12 @@ unique_name_in_owner = true
 position = Vector2(-1346, -1288)
 
 [node name="FrogScene" parent="." instance=ExtResource("11_inv5c")]
+position = Vector2(619, -590)
+
+[node name="River Scene" parent="." instance=ExtResource("15_iilp8")]
+z_index = -3
+position = Vector2(1167, -181)
+scale = Vector2(0.8, 0.8)
 
 [connection signal="value_changed" from="Camera2D/Game UI/Tilt Bar" to="Camera2D/Game UI/Tilt Bar" method="_on_value_changed"]
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]

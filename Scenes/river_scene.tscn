@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://cst6ml51bv8pt"]
+
+[ext_resource type="Script" path="res://Scripts/River Scene.gd" id="1_y2yrp"]
+
+[node name="River Scene" type="Node2D"]
+script = ExtResource("1_y2yrp")
+
+[node name="Full River" type="Area2D" parent="."]
+linear_damp_space_override = 1
+linear_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Full River"]
+polygon = PackedVector2Array(-1583, -55, 2045, -75, 3609, -6026, 2467, -6093, 957, -1232, -2015, -990)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.211765, 0.486275, 1, 1)
+polygon = PackedVector2Array(-1990, -982, -1580, -56, 2050, -77, 3556, -5983, 2478, -6055, 959, -1230)
+
+[node name="Mid Section 1" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mid Section 1"]
+polygon = PackedVector2Array(1183, -1979, 1824, -1889, 1449, -699, 964, -1239)
+
+[node name="Top Section 1" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top Section 1"]
+position = Vector2(16, -32)
+polygon = PackedVector2Array(1810, -1862, 1179, -1951, 2477, -6058, 3104, -6032)
+
+[node name="Top Section 2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top Section 2"]
+position = Vector2(656, 21)
+polygon = PackedVector2Array(1853, -1852, 1181, -1924, 2477, -6058, 2953, -6033)
+
+[node name="Mid Section 2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mid Section 2"]
+position = Vector2(649, 67)
+polygon = PackedVector2Array(1183, -1979, 1864, -1894, 1668, -1178, 807, -774)
+
+[node name="Bottom Section 1" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottom Section 1"]
+polygon = PackedVector2Array(-2005, -982, 955, -1231, 1432, -706, -1783, -511)
+
+[node name="Bottom Section 2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottom Section 2"]
+polygon = PackedVector2Array(2305, -1099, 2049, -79, -1583, -51, -1779, -511, 1449, -699)
+
+[connection signal="body_entered" from="Full River" to="." method="_on_full_river_body_entered"]
+[connection signal="body_exited" from="Full River" to="." method="_on_full_river_body_exited"]
+[connection signal="body_shape_exited" from="Full River" to="." method="_on_full_river_body_shape_exited"]
+[connection signal="body_entered" from="Mid Section 1" to="." method="_on_mid_section_1_body_entered"]
+[connection signal="body_exited" from="Mid Section 1" to="." method="_on_mid_section_1_body_exited"]
+[connection signal="body_entered" from="Top Section 1" to="." method="_on_top_section_1_body_entered"]
+[connection signal="body_exited" from="Top Section 1" to="." method="_on_top_section_1_body_exited"]
+[connection signal="body_entered" from="Top Section 2" to="." method="_on_top_section_2_body_entered"]
+[connection signal="body_exited" from="Top Section 2" to="." method="_on_top_section_2_body_exited"]
+[connection signal="body_entered" from="Mid Section 2" to="." method="_on_mid_section_2_body_entered"]
+[connection signal="body_exited" from="Mid Section 2" to="." method="_on_mid_section_2_body_exited"]
+[connection signal="body_entered" from="Bottom Section 1" to="." method="_on_bottom_section_1_body_entered"]
+[connection signal="body_exited" from="Bottom Section 1" to="." method="_on_bottom_section_1_body_exited"]
+[connection signal="body_entered" from="Bottom Section 2" to="." method="_on_bottom_section_2_body_entered"]
+[connection signal="body_exited" from="Bottom Section 2" to="." method="_on_bottom_section_2_body_exited"]
