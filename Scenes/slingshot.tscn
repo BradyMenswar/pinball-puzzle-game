@@ -17,7 +17,6 @@ size = Vector2(685.24, 30)
 
 [node name="Slingshot" type="Node2D"]
 script = ExtResource("1_tkg0i")
-impulse_strength = 4000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_t6ul1")

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var impulse_strength: float = 6000.0
+@export var impulse_strength: float = 200.0
 
 @onready var shape_cast: ShapeCast2D = $BounceComponent
 

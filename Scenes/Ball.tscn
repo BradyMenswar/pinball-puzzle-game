@@ -21,8 +21,9 @@ continuous_cd = 2
 script = ExtResource("1_atgge")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+scale = Vector2(0.07, 0.07)
 shape = SubResource("CircleShape2D_hfei8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("2_jgdqc")
