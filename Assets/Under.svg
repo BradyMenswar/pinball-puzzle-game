@@ -2,18 +2,21 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="234.70959mm"
-   height="28.714487mm"
-   viewBox="0 0 234.70959 28.714487"
+   width="69.591278mm"
+   height="8.5138302mm"
+   viewBox="0 0 69.591278 8.5138302"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    sodipodi:docname="Test Health Bar.svg"
+   xml:space="preserve"
+   inkscape:export-filename="Over.svg"
+   inkscape:export-xdpi="97.676773"
+   inkscape:export-ydpi="97.676773"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
      id="namedview1"
      pagecolor="#ffffff"
      bordercolor="#000000"
@@ -24,31 +27,26 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="2.9153076"
-     inkscape:cx="361.19688"
-     inkscape:cy="268.06777"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="2552"
-     inkscape:window-y="349"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs1" />
-  <g
+     inkscape:cx="333.06948"
+     inkscape:cy="32.415104"
+     inkscape:window-width="1350"
+     inkscape:window-height="1237"
+     inkscape:window-x="1198"
+     inkscape:window-y="102"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-306.45274,-98.159688)">
-    <rect
-       style="fill:#1a1a1a;stroke-width:0.727925"
+     transform="translate(-7.6398113,13.393895)"><rect
+       style="fill:#1a1a1a;stroke-width:0.215829"
        id="rect1"
-       width="234.70963"
-       height="28.714489"
-       x="306.45273"
-       y="98.159691"
-       ry="4.2447486"
+       width="69.591278"
+       height="8.5138302"
+       x="7.6398115"
+       y="-13.393894"
+       ry="1.2585657"
        inkscape:export-filename="Under.svg"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
-  </g>
-</svg>
+       inkscape:export-ydpi="96" /></g></svg>

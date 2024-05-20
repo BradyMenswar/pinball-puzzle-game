@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var lives_label = $Lives
-@onready var head_one_label = $"Head 1"
-@onready var tilt_bar = $"Tilt Bar"
+@onready var lives_label = $Control/Lives
+@onready var head_one_label = $"Control/Head 1"
+@onready var tilt_bar = $"Control/Tilt Bar"
 
 func _ready():
 	Events.connect("lives_changed", _on_lives_changed)

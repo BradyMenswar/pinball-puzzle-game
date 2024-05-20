@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=16 format=3 uid="uid://bhq64j7giowbb"]
 
-[ext_resource type="Script" path="res://Scenes/BallCamera.gd" id="3_k2ven"]
+[ext_resource type="Script" path="res://Scenes/LevelOne.gd" id="1_te68m"]
 [ext_resource type="Texture2D" uid="uid://cciw488goen8o" path="res://Assets/Under.svg" id="4_epjgh"]
 [ext_resource type="Script" path="res://Scripts/TiltUI.gd" id="4_st18g"]
 [ext_resource type="Texture2D" uid="uid://y3awqy1s82oy" path="res://Assets/Over.svg" id="5_cvw1d"]
 [ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/slingshot.tscn" id="5_hv756"]
+[ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/CircleBouncer.tscn" id="6_17ie4"]
 [ext_resource type="Texture2D" uid="uid://djd1oovw0nhbg" path="res://Assets/Progress.svg" id="6_gx05l"]
 [ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_opnyw"]
 [ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_auw3e"]
+[ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/HeadOne.tscn" id="8_ig4a3"]
 [ext_resource type="PackedScene" uid="uid://bvmuxxy37jsin" path="res://Scenes/TiltManager.tscn" id="9_q8h43"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
 [ext_resource type="Texture2D" uid="uid://cwhq2p4bus7yy" path="res://Assets/Test map.png" id="16_630vp"]
@@ -20,6 +22,7 @@ offsets = PackedFloat32Array(0, 0.483871, 0.922201)
 colors = PackedColorArray(0, 0.813116, 0, 1, 0.868576, 0.753142, 3.85046e-07, 1, 1, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_te68m")
 
 [node name="Temp Background" type="Sprite2D" parent="."]
 texture = ExtResource("16_630vp")
@@ -34,20 +37,6 @@ position = Vector2(120, 406)
 rotation = 0.523599
 scale = Vector2(-0.107, 0.107)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 360)
-position_smoothing_enabled = true
-position_smoothing_speed = 2.5
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 1.0
-drag_top_margin = 0.1
-drag_right_margin = 1.0
-drag_bottom_margin = 0.1
-editor_draw_limits = true
-editor_draw_drag_margin = true
-script = ExtResource("3_k2ven")
-
 [node name="Killbox" type="Area2D" parent="."]
 position = Vector2(45, 674)
 script = ExtResource("7_auw3e")
@@ -61,13 +50,49 @@ shape = SubResource("RectangleShape2D_wikol")
 position = Vector2(-70, 488)
 scale = Vector2(0.0799985, 0.0799985)
 
+[node name="Head One" parent="." instance=ExtResource("8_ig4a3")]
+position = Vector2(-258, 188)
+
+[node name="Flipper Left2" parent="." instance=ExtResource("10_cxee4")]
+position = Vector2(-207, -49)
+scale = Vector2(0.0799985, 0.0799985)
+
 [node name="Flipper Right" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(70, 488)
 scale = Vector2(-0.08, 0.08)
 is_right = true
 
+[node name="Flipper Right2" parent="." instance=ExtResource("10_cxee4")]
+position = Vector2(291, -168)
+scale = Vector2(-0.08, 0.08)
+is_right = true
+
 [node name="Tilt Manager" parent="." instance=ExtResource("9_q8h43")]
 unique_name_in_owner = true
+
+[node name="CircleBouncer" parent="." instance=ExtResource("6_17ie4")]
+position = Vector2(-118, 22)
+scale = Vector2(0.335995, 0.335995)
+
+[node name="CircleBouncer2" parent="." instance=ExtResource("6_17ie4")]
+position = Vector2(239, 225)
+scale = Vector2(0.223406, 0.223406)
+
+[node name="CircleBouncer6" parent="." instance=ExtResource("6_17ie4")]
+position = Vector2(-118, 236)
+scale = Vector2(0.166423, 0.166423)
+
+[node name="CircleBouncer3" parent="." instance=ExtResource("6_17ie4")]
+position = Vector2(292, 270)
+scale = Vector2(0.223406, 0.223406)
+
+[node name="CircleBouncer4" parent="." instance=ExtResource("6_17ie4")]
+position = Vector2(307, 205)
+scale = Vector2(0.223406, 0.223406)
+
+[node name="CircleBouncer5" parent="." instance=ExtResource("6_17ie4")]
+position = Vector2(2.38419e-07, -92)
+scale = Vector2(0.502833, 0.502833)
 
 [node name="Walls" type="StaticBody2D" parent="."]
 position = Vector2(120, 406)
@@ -75,39 +100,38 @@ rotation = -2.61799
 scale = Vector2(0.107, -0.107)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PackedVector2Array(1209.45, 1475.27, 2089, 1540.63, 2499.21, 1054.42, 3164.23, 1136.21, 4132.08, 637.421, 4799.63, -369.282, 4954.67, -301.358, 2969.94, 3117.6, -2250.5, 103.582, -352.383, -3127.97, -221.967, -2998.72, -680.157, -2410.72, -786.226, -1759.71, -703.636, -1042.95, -230.871, -478.624, -434.981, 61.8201, 60.1423, 811.718, -42.907, 784.597, -115.169, 872.376, -26.8096, 1074.47, -120.268, 1236.35, 940.006, 1848.5, 1038.14, 1678.53, 1239.9, 1665.52, 1306.57, 1531.34)
+polygon = PackedVector2Array(1172.39, 1464.68, 2089, 1540.63, 2499.21, 1054.42, 3164.23, 1136.21, 4132.08, 637.421, 4704.01, -241.019, 4671.14, -670.075, 4324.03, -816.523, 4154.31, -709.473, 3923.35, -907.569, 3978.02, -1469.54, 3891.34, -2048.38, 4204.58, -2104.94, 4817.62, -2063.96, 4887.71, -2185.36, 4795.26, -2249.53, 5925.9, -2600.37, 7696.61, -5592.53, 2908.91, -8421.48, 2960.31, -8510.51, 7780.72, -5738.21, 7978.39, -5613.3, 4954.67, -301.358, 2969.94, 3117.6, -2250.5, 103.582, 2815.87, -8615.49, 2952.21, -8515.19, 1252.15, -5689.95, 1325.36, -5547.89, 1202.37, -5521.78, 1211.04, -5387.27, 1542.79, -4915.15, 2345.14, -3912.33, 1069.76, -4637.89, -221.967, -2998.72, -680.157, -2410.72, -786.226, -1759.71, -703.636, -1042.95, -230.871, -478.624, -434.981, 61.8201, 87.8411, 838.504, -42.907, 784.597, -115.169, 872.376, -26.8096, 1074.47, -120.268, 1236.35, 940.006, 1848.5, 1038.14, 1678.53, 1239.9, 1665.52, 1306.57, 1531.34)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("6_opnyw")
 
-[node name="Head 1" type="Label" parent="CanvasLayer"]
-offset_left = -6832.0
-offset_top = -864.0
-offset_right = -4848.0
-offset_bottom = -590.0
-theme_override_font_sizes/font_size = 200
+[node name="Control" type="VFlowContainer" parent="CanvasLayer"]
+offset_right = 887.0
+offset_bottom = 145.0
+
+[node name="Lives" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Lives Left: 3"
+
+[node name="Head 1" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Head One : Dormant
 "
 
-[node name="Lives" type="Label" parent="CanvasLayer"]
-offset_left = -6871.0
-offset_top = -1511.0
-offset_right = -4032.0
-offset_bottom = -829.0
-theme_override_font_sizes/font_size = 500
-text = "Lives Left: 3"
-
-[node name="Tilt Bar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = -6885.0
-offset_top = -1893.0
-offset_right = -5821.0
-offset_bottom = -1762.0
-scale = Vector2(3.47119, 3.49517)
+[node name="Tilt Bar" type="TextureProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
 texture_under = ExtResource("4_epjgh")
 texture_over = ExtResource("5_cvw1d")
 texture_progress = ExtResource("6_gx05l")
 script = ExtResource("4_st18g")
 gradient = SubResource("Gradient_s5je1")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]
-[connection signal="value_changed" from="CanvasLayer/Tilt Bar" to="CanvasLayer/Tilt Bar" method="_on_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/Tilt Bar" to="CanvasLayer/Control/Tilt Bar" method="_on_value_changed"]

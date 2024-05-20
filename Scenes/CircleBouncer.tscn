@@ -4,17 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://bqg1g6n4lthbe" path="res://Assets/pinball.png" id="1_h046e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkssn"]
-radius = 396.21
+radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvcpq"]
 radius = 410.38
 
 [node name="CircleBouncer" type="Node2D"]
 script = ExtResource("1_bq2it")
-impulse_strength = 3000.0
+impulse_strength = 150.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.35537, 3.35537)
+scale = Vector2(0.414718, 0.414718)
 texture = ExtResource("1_h046e")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -24,6 +24,7 @@ shape = SubResource("CircleShape2D_hkssn")
 debug_color = Color(1, 0, 0.14902, 0.419608)
 
 [node name="BounceComponent" type="ShapeCast2D" parent="."]
+scale = Vector2(0.126139, 0.126139)
 shape = SubResource("CircleShape2D_rvcpq")
 target_position = Vector2(0, 0)
 collision_mask = 512

@@ -26,7 +26,7 @@ func _on_game_over():
 
 func _input(event):	
 	if event.is_action_pressed("reset_ball"):
-		spawn_ball(120,400,0,0)
+		spawn_ball(150,400,0,0)
 		
 func spawn_ball(pos_x, pos_y, force_x, force_y):
 	var scene = load("res://Scenes/Ball.tscn")
