@@ -1,12 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=20 format=3 uid="uid://bhq64j7giowbb"]
 
-[ext_resource type="Script" path="res://Scenes/LevelOne.gd" id="1_te68m"]
-[ext_resource type="Texture2D" uid="uid://cciw488goen8o" path="res://Assets/Under.svg" id="4_epjgh"]
+[ext_resource type="Script" path="res://Scripts/LevelOne.gd" id="1_te68m"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_mu4l2"]
+[ext_resource type="Texture2D" uid="uid://bdag23n72nqe1" path="res://Assets/Under.svg" id="4_epjgh"]
 [ext_resource type="Script" path="res://Scripts/TiltUI.gd" id="4_st18g"]
-[ext_resource type="Texture2D" uid="uid://y3awqy1s82oy" path="res://Assets/Over.svg" id="5_cvw1d"]
+[ext_resource type="Texture2D" uid="uid://ck7mh028oohr" path="res://Assets/Over.svg" id="5_cvw1d"]
 [ext_resource type="PackedScene" uid="uid://bcmo357nxw77a" path="res://Scenes/slingshot.tscn" id="5_hv756"]
 [ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/CircleBouncer.tscn" id="6_17ie4"]
-[ext_resource type="Texture2D" uid="uid://djd1oovw0nhbg" path="res://Assets/Progress.svg" id="6_gx05l"]
+[ext_resource type="Texture2D" uid="uid://7lkh8eh83qu5" path="res://Assets/Progress.svg" id="6_gx05l"]
 [ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_opnyw"]
 [ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_auw3e"]
 [ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/HeadOne.tscn" id="8_ig4a3"]
@@ -29,6 +30,17 @@ script = ExtResource("1_te68m")
 
 [node name="Temp Background" type="Sprite2D" parent="."]
 texture = ExtResource("16_630vp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 540)
+limit_left = -320
+limit_right = 320
+limit_bottom = 540
+position_smoothing_enabled = true
+drag_left_margin = 1.0
+drag_right_margin = 1.0
+editor_draw_drag_margin = true
+script = ExtResource("2_mu4l2")
 
 [node name="Slingshot Left" parent="." instance=ExtResource("5_hv756")]
 position = Vector2(-120, 406)
@@ -143,9 +155,6 @@ texture_over = ExtResource("5_cvw1d")
 texture_progress = ExtResource("6_gx05l")
 script = ExtResource("4_st18g")
 gradient = SubResource("Gradient_s5je1")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
 
 [node name="River Scene" parent="." instance=ExtResource("14_1aihy")]
 z_index = 1

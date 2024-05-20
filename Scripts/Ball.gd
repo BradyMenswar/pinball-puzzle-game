@@ -13,7 +13,7 @@ var external_force = [0,0]
 func _ready():
 	update_gravity(base_gravity)
 	max_speed = base_max_speed
-	
+
 func update_gravity(new_gravity):
 	gravity_scale = new_gravity
 	
@@ -35,8 +35,8 @@ func _physics_process(_delta):
 	
 	#updating maxspeed with limit
 	max_speed += max_speed_changer
-	if max_speed < base_max_speed/6:
-		max_speed = base_max_speed/6
+	if max_speed < base_max_speed / 6.0:
+		max_speed = base_max_speed / 6.0
 	
 	#updating external_impulse
 	apply_central_impulse(Vector2(external_force[0],external_force[1]))

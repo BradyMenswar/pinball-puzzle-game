@@ -28,17 +28,3 @@ shape = SubResource("CircleShape2D_hfei8")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("2_jgdqc")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = -320
-limit_right = 320
-limit_bottom = 540
-position_smoothing_enabled = true
-position_smoothing_speed = 2.5
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 1.0
-drag_top_margin = 0.1
-drag_right_margin = 1.0
-drag_bottom_margin = 0.1
-editor_draw_drag_margin = true

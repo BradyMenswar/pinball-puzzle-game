@@ -11,6 +11,7 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Ball") and on_cooldown == false:
 		sprite_ball.texture = load("res://Assets/pinball.png")
+		sprite_ball.scale = Vector2(0.07,0.07)
 		if body.is_frog == true:
 			sprite_ball.self_modulate = Color(0,1,0)
 			was_ball_frog = true
