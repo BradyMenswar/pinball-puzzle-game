@@ -25,11 +25,11 @@ func _on_timer_timeout():
 	sprite_ball.texture = null
 	sprite_ball.self_modulate = Color(1,1,1)
 	if was_ball_frog == false:
-		var rand_x = rng.randf_range(-2000.0, 2000.0)
-		var rand_y = rng.randf_range(3000.0, 5000.0)
+		var rand_x = rng.randf_range(-100.0, 100.0)
+		var rand_y = rng.randf_range(150.0, 250.0)
 		Events.emit_signal("spawn_new_ball",global_position.x,global_position.y,rand_x,rand_y)
 	if was_ball_frog == true:
-		Events.emit_signal("spawn_new_ball",global_position.x,global_position.y,0,-8000)
+		Events.emit_signal("spawn_new_ball",global_position.x,global_position.y,400,-400)
 		was_ball_frog = false
 
 

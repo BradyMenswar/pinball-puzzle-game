@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=19 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="Script" path="res://Scenes/LevelOne.gd" id="1_te68m"]
 [ext_resource type="Texture2D" uid="uid://cciw488goen8o" path="res://Assets/Under.svg" id="4_epjgh"]
@@ -12,7 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/HeadOne.tscn" id="8_ig4a3"]
 [ext_resource type="PackedScene" uid="uid://bvmuxxy37jsin" path="res://Scenes/TiltManager.tscn" id="9_q8h43"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
+[ext_resource type="PackedScene" uid="uid://cst6ml51bv8pt" path="res://Scenes/river_scene.tscn" id="14_1aihy"]
+[ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/gator.tscn" id="15_cyuln"]
 [ext_resource type="Texture2D" uid="uid://cwhq2p4bus7yy" path="res://Assets/Test map.png" id="16_630vp"]
+[ext_resource type="PackedScene" uid="uid://canewcwkp887n" path="res://Scenes/FrogScene.tscn" id="16_dlerw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
 size = Vector2(1278, 271)
@@ -51,7 +54,8 @@ position = Vector2(-70, 488)
 scale = Vector2(0.0799985, 0.0799985)
 
 [node name="Head One" parent="." instance=ExtResource("8_ig4a3")]
-position = Vector2(-258, 188)
+position = Vector2(-261, 198)
+scale = Vector2(-1, 1)
 
 [node name="Flipper Left2" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(-207, -49)
@@ -78,7 +82,7 @@ scale = Vector2(0.335995, 0.335995)
 position = Vector2(239, 225)
 scale = Vector2(0.223406, 0.223406)
 
-[node name="CircleBouncer6" parent="." instance=ExtResource("6_17ie4")]
+[node name="CircleBouncer7" parent="." instance=ExtResource("6_17ie4")]
 position = Vector2(-118, 236)
 scale = Vector2(0.166423, 0.166423)
 
@@ -100,7 +104,17 @@ rotation = -2.61799
 scale = Vector2(0.107, -0.107)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PackedVector2Array(1172.39, 1464.68, 2089, 1540.63, 2499.21, 1054.42, 3164.23, 1136.21, 4132.08, 637.421, 4704.01, -241.019, 4671.14, -670.075, 4324.03, -816.523, 4154.31, -709.473, 3923.35, -907.569, 3978.02, -1469.54, 3891.34, -2048.38, 4204.58, -2104.94, 4817.62, -2063.96, 4887.71, -2185.36, 4795.26, -2249.53, 5925.9, -2600.37, 7696.61, -5592.53, 2908.91, -8421.48, 2960.31, -8510.51, 7780.72, -5738.21, 7978.39, -5613.3, 4954.67, -301.358, 2969.94, 3117.6, -2250.5, 103.582, 2815.87, -8615.49, 2952.21, -8515.19, 1252.15, -5689.95, 1325.36, -5547.89, 1202.37, -5521.78, 1211.04, -5387.27, 1542.79, -4915.15, 2345.14, -3912.33, 1069.76, -4637.89, -221.967, -2998.72, -680.157, -2410.72, -786.226, -1759.71, -703.636, -1042.95, -230.871, -478.624, -434.981, 61.8201, 87.8411, 838.504, -42.907, 784.597, -115.169, 872.376, -26.8096, 1074.47, -120.268, 1236.35, 940.006, 1848.5, 1038.14, 1678.53, 1239.9, 1665.52, 1306.57, 1531.34)
+polygon = PackedVector2Array(1172.39, 1464.68, 2089, 1540.63, 2499.21, 1054.42, 3164.23, 1136.21, 4132.08, 637.421, 4704.01, -241.019, 4671.14, -670.075, 4324.03, -816.523, 4154.31, -709.473, 3923.35, -907.569, 3978.02, -1469.54, 3891.34, -2048.38, 4204.58, -2104.94, 4817.62, -2063.96, 4887.71, -2185.36, 4795.26, -2249.53, 5925.9, -2600.37, 6629.01, -3780.8, 6577.7, -3972.3, 6928.08, -4298.79, 7310, -4941.61, 7696.61, -5592.53, 6979.33, -4873.53, 6693.12, -4639.49, 6212.41, -4722.78, 5680.06, -4922.21, 5162.98, -5166.79, 4915.41, -5018.36, 4704.97, -5139.86, 4620.95, -5274.7, 4867.03, -5607.46, 5050.19, -5868.62, 5244.53, -6037, 5572.89, -6624.42, 4836.36, -7049.66, 4443.16, -6219.09, 4283.61, -5793.21, 4155.86, -5478.48, 3967.2, -5544.23, 3819.34, -5661.97, 3831.86, -5870.57, 3867.08, -5968.95, 3677.17, -6013.85, 2230.41, -7302.39, 2908.91, -8421.48, 2960.31, -8510.51, 7780.72, -5738.21, 7978.39, -5613.3, 4954.67, -301.358, 2969.94, 3117.6, -2250.5, 103.582, 2815.87, -8615.49, 2952.21, -8515.19, 1252.15, -5689.95, 1325.36, -5547.89, 1202.37, -5521.78, 1211.04, -5387.27, 1542.79, -4915.15, 2312.76, -3931.02, 2095.4, -3797.52, 1982.33, -3657.76, 1965.13, -3441.06, 1822.29, -3642.25, 1885.3, -3994.37, 1796.6, -4121.12, 1790.1, -4222, 1495.97, -4553.68, 1328.51, -4693.54, 1069.76, -4637.89, 794.391, -4235.71, 918.21, -3926.8, 846.192, -3633.84, 742.807, -3585.62, 566.915, -3654.8, 387.511, -3456.21, 163.882, -3218.41, -24.1968, -3154.33, -221.967, -2998.72, -680.157, -2410.72, -786.226, -1759.71, -703.636, -1042.95, -230.871, -478.624, -434.981, 61.8201, 87.8411, 838.504, -42.907, 784.597, -115.169, 872.376, -26.8096, 1074.47, -120.268, 1236.35, 940.006, 1848.5, 1038.14, 1678.53, 1239.9, 1665.52, 1306.57, 1531.34)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(1953.65, -1645.49, 1998.22, -1760.06, 2117.21, -1928.77, 1976.19, -2020.98, 1797.37, -1692.56)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2(-24.281, -14.0188)
+polygon = PackedVector2Array(3059.04, 28.7029, 2983.36, 103.714, 2917.02, 162.539, 2847.26, 208.596, 2744.21, 181.475, 2656.43, 109.213, 2674.21, 22.3506, 2647.76, -25.2949, 2656.19, -95.9695, 2658.69, -137.69, 2730.96, -225.468, 2836.51, -240.068, 2909.35, -198.011, 3003.06, -154.703, 2999.3, -92.1218)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(107.995, -822.561, 49.7515, -759.064, -31.8569, -655.098, -160.439, -675.378, -191.562, -714.93, -116.795, -844.428, -4.98047, -963.329, 98.0688, -936.208, 150.051, -895.404)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("6_opnyw")
@@ -132,6 +146,20 @@ gradient = SubResource("Gradient_s5je1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
+
+[node name="River Scene" parent="." instance=ExtResource("14_1aihy")]
+z_index = 1
+position = Vector2(1, 156)
+
+[node name="Gator" parent="." instance=ExtResource("15_cyuln")]
+position = Vector2(173, -3)
+
+[node name="FrogScene" parent="." instance=ExtResource("16_dlerw")]
+z_index = 2
+position = Vector2(10, 187)
+
+[node name="Head One2" parent="." instance=ExtResource("8_ig4a3")]
+position = Vector2(232, -72)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]
 [connection signal="value_changed" from="CanvasLayer/Control/Tilt Bar" to="CanvasLayer/Control/Tilt Bar" method="_on_value_changed"]

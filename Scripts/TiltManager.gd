@@ -3,7 +3,7 @@ extends Node2D
 @onready var cooldown_timer = $"Internal Cooldown"
 @onready var decay_timer = $Decay
 
-@export var impulse_strength: float = 1000
+@export var impulse_strength: float = 65
 @export var internal_cooldown := 1.0
 @export var decay_debounce := 3.0
 @export var max_tilt := 100.0

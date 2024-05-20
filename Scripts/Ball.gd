@@ -3,10 +3,10 @@ extends RigidBody2D
 var reset_state = false
 var reset_location
 var is_frog = false
-@export var base_max_speed = 3000
+@export var base_max_speed = 1100
 var max_speed = 0
 var max_speed_changer = 0
-var base_gravity := 0.60
+var base_gravity := 0.50
 var gravity_changer = 0
 var external_force = [0,0]
 
@@ -35,8 +35,8 @@ func _physics_process(_delta):
 	
 	#updating maxspeed with limit
 	max_speed += max_speed_changer
-	if max_speed < base_max_speed/4:
-		max_speed = base_max_speed/4
+	if max_speed < base_max_speed/6:
+		max_speed = base_max_speed/6
 	
 	#updating external_impulse
 	apply_central_impulse(Vector2(external_force[0],external_force[1]))

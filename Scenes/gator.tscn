@@ -1,18 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://qq550hkhxfvi"]
+[gd_scene load_steps=2 format=3 uid="uid://qq550hkhxfvi"]
 
 [ext_resource type="Script" path="res://Scripts/Gator.gd" id="1_mcjko"]
-[ext_resource type="Texture2D" uid="uid://bjv48pp4p6vwl" path="res://Assets/gator.png" id="2_vmsdy"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1xavu"]
-radius = 410.148
 
 [node name="Gator" type="Node2D"]
 script = ExtResource("1_mcjko")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_1xavu")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-172, 3)
+polygon = PackedVector2Array(138, 13, 151, 25, 169, 29, 200, 27, 228, 22, 237, 9, 243, -14, 246, -28, 253, -34, 223, -41, 206, -40, 198, -43, 161.72, -33.3748, 149, -30, 132, -14, 133, -1)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -20,11 +17,6 @@ one_shot = true
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.999998, 3)
-scale = Vector2(2, 2)
-texture = ExtResource("2_vmsdy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

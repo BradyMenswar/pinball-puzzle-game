@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://currbox0e6qy6" path="res://Assets/frog.png" id="2_4v8h3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjxn0"]
-radius = 182.488
+radius = 10.6875
 
 [node name="Frog" type="Node2D"]
 script = ExtResource("1_ie6ah")
@@ -17,7 +17,7 @@ shape = SubResource("CircleShape2D_xjxn0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 rotation = -1.5708
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("2_4v8h3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

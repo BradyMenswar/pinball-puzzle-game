@@ -4,7 +4,6 @@
 
 [node name="Tilt Manager" type="Node2D"]
 script = ExtResource("1_idt0v")
-impulse_strength = 100.0
 
 [node name="Internal Cooldown" type="Timer" parent="."]
 one_shot = true

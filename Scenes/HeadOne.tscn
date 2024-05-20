@@ -19,6 +19,7 @@ radius = 32.17
 script = ExtResource("1_oquff")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.516, -5.484)
 scale = Vector2(0.102064, 0.102064)
 texture = ExtResource("1_6ao07")
 
@@ -30,23 +31,22 @@ position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_nkydc")
 
 [node name="Left" type="CollisionShape2D" parent="Collision"]
-position = Vector2(-16, 1.85938)
+position = Vector2(-18, 1)
 shape = SubResource("RectangleShape2D_8sfut")
 
 [node name="Right" type="CollisionShape2D" parent="Collision"]
-position = Vector2(16, 2)
+position = Vector2(18, 1)
 shape = SubResource("RectangleShape2D_8sfut")
 
 [node name="Bottom" type="CollisionShape2D" parent="Collision"]
 z_index = 1
-position = Vector2(-0.773438, 20.2813)
+position = Vector2(0.742561, 14.7973)
 shape = SubResource("RectangleShape2D_k5s3c")
 disabled = true
 
 [node name="Mouth" type="Area2D" parent="."]
 
 [node name="Shape" type="CollisionShape2D" parent="Mouth"]
-position = Vector2(-2, 8)
 scale = Vector2(-0.290154, -0.290154)
 shape = SubResource("CircleShape2D_vut4j")
 debug_color = Color(1, 0, 0, 0.419608)
