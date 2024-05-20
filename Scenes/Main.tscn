@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cst6ml51bv8pt" path="res://Scenes/river_scene.tscn" id="14_1aihy"]
 [ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/gator.tscn" id="15_cyuln"]
 [ext_resource type="Texture2D" uid="uid://cwhq2p4bus7yy" path="res://Assets/Test map.png" id="16_630vp"]
-[ext_resource type="PackedScene" uid="uid://canewcwkp887n" path="res://Scenes/FrogScene.tscn" id="16_dlerw"]
+[ext_resource type="PackedScene" uid="uid://canewcwkp887n" path="res://Scenes/RiverPath.tscn" id="16_dlerw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
 size = Vector2(1278, 271)
@@ -93,10 +93,6 @@ scale = Vector2(0.335995, 0.335995)
 [node name="CircleBouncer2" parent="." instance=ExtResource("6_17ie4")]
 position = Vector2(239, 225)
 scale = Vector2(0.223406, 0.223406)
-
-[node name="CircleBouncer7" parent="." instance=ExtResource("6_17ie4")]
-position = Vector2(-118, 236)
-scale = Vector2(0.166423, 0.166423)
 
 [node name="CircleBouncer3" parent="." instance=ExtResource("6_17ie4")]
 position = Vector2(292, 270)

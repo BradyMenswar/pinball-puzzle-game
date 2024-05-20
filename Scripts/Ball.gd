@@ -35,8 +35,8 @@ func _physics_process(_delta):
 	
 	#updating maxspeed with limit
 	max_speed += max_speed_changer
-	if max_speed < base_max_speed / 6.0:
-		max_speed = base_max_speed / 6.0
+	if max_speed < base_max_speed / 7.5:
+		max_speed = base_max_speed / 7.5
 	
 	#updating external_impulse
 	apply_central_impulse(Vector2(external_force[0],external_force[1]))
@@ -50,5 +50,10 @@ func move_body(target_location: Vector2):
 	
 func change_to_frog():
 	is_frog = true
-	get_node("Sprite2D").self_modulate = Color(0,1,0)
+	get_node("Sprite2D").self_modulate = Color(0,0.5,0)
+	
+func remove_self():
+	if is_frog == true:
+		Events.emit_signal("frog_not_present")
+	queue_free()
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bodl34klkkp72"]
+[gd_scene load_steps=4 format=3 uid="uid://bx4075lvjt5ag"]
 
 [ext_resource type="Script" path="res://Scripts/River.gd" id="1_1auq1"]
 [ext_resource type="Texture2D" uid="uid://currbox0e6qy6" path="res://Assets/frog.png" id="2_jvhfw"]

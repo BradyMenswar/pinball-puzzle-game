@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://f1ggv0c7d5ut"]
+
+[ext_resource type="Texture2D" uid="uid://by0ij1g1duiw8" path="res://Assets/mushroom.png" id="1_xh6m5"]
+[ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/CircleBouncer.tscn" id="2_ro4r6"]
+
+[node name="Mushroom" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -12)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_xh6m5")
+
+[node name="CircleBouncer" parent="." instance=ExtResource("2_ro4r6")]
+visible = false
+position = Vector2(0, -14)
+scale = Vector2(0.2, 0.2)
+impulse_strength = 100.0

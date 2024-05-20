@@ -10,12 +10,12 @@ func _on_mouth_body_entered(body):
 		bottom_collision.set_deferred("disabled", false)
 		Events.emit_signal("head_one_activated")
 		if destroy_ball:
-			body.queue_free()
+			body.remove_self()
 			var sprite_ball = Sprite2D.new()
 			sprite_ball.texture = load("res://Assets/pinball.png")
 			sprite_ball.scale = Vector2(0.07, 0.07)
 			add_child(sprite_ball)
-			Events.emit_signal("spawn_new_ball",150,400,0,0)
+			# Events.emit_signal("spawn_new_ball",150,400,0,0)
 		active = true;
 		if destroy_self:
 			queue_free()

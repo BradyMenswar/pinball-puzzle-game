@@ -3,7 +3,7 @@ extends Node2D
 func _on_full_river_body_entered(body):
 	if body.is_in_group("Ball"):
 		body.gravity_changer = -1 * (body.base_gravity / 30)
-		body.max_speed_changer = -1 * ((0.75*body.base_max_speed) / 30)
+		body.max_speed_changer = -1 * ((body.base_max_speed) / 50)
 	pass # Replace with function body.
 
 

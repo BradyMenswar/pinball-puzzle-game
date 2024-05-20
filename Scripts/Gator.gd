@@ -13,7 +13,7 @@ func _on_area_2d_body_entered(body):
 		sprite_ball.texture = load("res://Assets/pinball.png")
 		sprite_ball.scale = Vector2(0.07,0.07)
 		if body.is_frog == true:
-			sprite_ball.self_modulate = Color(0,1,0)
+			sprite_ball.self_modulate = Color(0,0.5,0)
 			was_ball_frog = true
 		body.queue_free()
 		var timer = get_node("Timer")
@@ -26,8 +26,8 @@ func _on_timer_timeout():
 	sprite_ball.texture = null
 	sprite_ball.self_modulate = Color(1,1,1)
 	if was_ball_frog == false:
-		var rand_x = rng.randf_range(-100.0, 100.0)
-		var rand_y = rng.randf_range(150.0, 250.0)
+		var rand_x = rng.randf_range(-300.0, 100.0)
+		var rand_y = rng.randf_range(300.0, 450.0)
 		Events.emit_signal("spawn_new_ball",global_position.x,global_position.y,rand_x,rand_y)
 	if was_ball_frog == true:
 		Events.emit_signal("spawn_new_ball",global_position.x,global_position.y,400,-400)
