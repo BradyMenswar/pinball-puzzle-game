@@ -3,7 +3,8 @@ extends CanvasLayer
 @onready var lives_label = $Control/Lives
 @onready var head_one_label = $"Control/Head 1"
 @onready var head_two_label = $"Control/Head 2"
-@onready var tilt_bar = $"Control/Tilt Bar"
+@onready var tilt_bar = $"Bottom UI/Tilt Bar"
+@onready var bottom_ui = $"Bottom UI"
 
 func _ready():
 	Events.connect("lives_changed", _on_lives_changed)
@@ -14,6 +15,8 @@ func _ready():
 	
 func _on_lives_changed(lives):
 	lives_label.text = "Lives Left: " + str(lives)
+	bottom_ui.position.x = 504 - (16 * lives)
+	bottom_ui.size.x = 102 + (16 * lives)
 	
 func _on_tilt_changed(tilt):
 	tilt_bar.value = tilt

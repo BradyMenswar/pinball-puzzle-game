@@ -53,7 +53,5 @@ func change_to_frog():
 	get_node("Sprite2D").self_modulate = Color(0,0.5,0)
 	
 func remove_self():
-	if is_frog == true:
-		Events.emit_signal("frog_not_present")
 	queue_free()
 	

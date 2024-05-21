@@ -13,7 +13,6 @@ func _ready():
 	Events.connect("spawn_new_ball",spawn_ball)
 	Events.connect("head_one_activated", _on_head_one_activated)	
 	Events.connect("head_two_activated", _on_head_two_activated)
-	Events.emit_signal("lives_changed", lives)
 
 func on_ball_lost():
 	var balls = get_tree().get_nodes_in_group("Ball")

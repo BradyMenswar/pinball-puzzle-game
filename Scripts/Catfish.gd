@@ -3,17 +3,11 @@ extends PathFollow2D
 var sprite_ball = Sprite2D.new()
 var under_water = Sprite2D.new()
 var above_water = Sprite2D.new()
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	add_child(sprite_ball)
 	under_water = get_node("Node2D/Above")
 	above_water = get_node("Node2D/Below")
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_area_2d_body_entered(body):
@@ -26,4 +20,3 @@ func _on_area_2d_body_entered(body):
 		Events.emit_signal("ball_lost")
 		under_water.visible = false
 		above_water.visible = true
-	pass # Replace with function body.
