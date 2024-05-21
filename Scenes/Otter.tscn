@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://crm21obcv17ln"]
+
+[ext_resource type="Script" path="res://Scripts/Otter.gd" id="1_8ty37"]
+[ext_resource type="Texture2D" uid="uid://cisuas1f8d7jp" path="res://Assets/Otter.png" id="2_qtrhj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ica51"]
+size = Vector2(35, 14)
+
+[node name="Otter" type="PathFollow2D"]
+loop = false
+script = ExtResource("1_8ty37")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_qtrhj")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(-4.5, 1)
+shape = SubResource("RectangleShape2D_ica51")
+
+[connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]

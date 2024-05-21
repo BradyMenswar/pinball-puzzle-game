@@ -3,7 +3,7 @@ extends RigidBody2D
 var reset_state = false
 var reset_location
 var is_frog = false
-@export var base_max_speed = 1100
+@export var base_max_speed = 1000
 var max_speed = 0
 var max_speed_changer = 0
 var base_gravity := 0.50

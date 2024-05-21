@@ -23,6 +23,12 @@ texture = ExtResource("1_h046e")
 shape = SubResource("CircleShape2D_hkssn")
 debug_color = Color(1, 0, 0.14902, 0.419608)
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_hkssn")
+debug_color = Color(1, 0, 0.14902, 0.419608)
+
 [node name="BounceComponent" type="ShapeCast2D" parent="."]
 scale = Vector2(0.126139, 0.126139)
 shape = SubResource("CircleShape2D_rvcpq")

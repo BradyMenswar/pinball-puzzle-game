@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_3dedr")
 path = "res://Scenes/Log.tscn"
-rotation = 90.0
+rotation = 180.0

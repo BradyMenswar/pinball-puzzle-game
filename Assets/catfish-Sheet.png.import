@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjccfqokc0dsb"
-path="res://.godot/imported/log.png-da952c452bed7a9956f6b52fed20de89.ctex"
+uid="uid://b76nuo227ykxc"
+path="res://.godot/imported/catfish-Sheet.png-48fa9690d7732a28cf95cbbe4e972300.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/log.png"
-dest_files=["res://.godot/imported/log.png-da952c452bed7a9956f6b52fed20de89.ctex"]
+source_file="res://Assets/catfish-Sheet.png"
+dest_files=["res://.godot/imported/catfish-Sheet.png-48fa9690d7732a28cf95cbbe4e972300.ctex"]
 
 [params]
 

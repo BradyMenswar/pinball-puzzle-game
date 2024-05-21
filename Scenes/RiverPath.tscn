@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmq1i73i64iks"]
+[gd_scene load_steps=8 format=3 uid="uid://dmq1i73i64iks"]
 
 [ext_resource type="Script" path="res://Scripts/RiverPath.gd" id="1_2gnhj"]
 [ext_resource type="Resource" uid="uid://dho75fdqa8sjb" path="res://Resources/River Objects/frog.tres" id="2_woohy"]
 [ext_resource type="Resource" uid="uid://cydv4m8vf1alt" path="res://Resources/River Objects/log.tres" id="3_byrti"]
+[ext_resource type="Resource" uid="uid://rg68x10cxm2p" path="res://Resources/River Objects/Otter.tres" id="4_pwj3t"]
+[ext_resource type="Resource" uid="uid://bc5onawjend8r" path="res://Resources/River Objects/Turtle.tres" id="5_gt8xy"]
+[ext_resource type="Resource" uid="uid://dfg0laju5mvak" path="res://Resources/River Objects/Catfish.tres" id="6_23vi2"]
 
 [sub_resource type="Curve2D" id="Curve2D_7kfj2"]
 _data = {
@@ -13,8 +16,11 @@ point_count = 13
 [node name="TestRiverPath" type="Node2D"]
 script = ExtResource("1_2gnhj")
 spawnable_objects = {
+"Catfish": ExtResource("6_23vi2"),
 "Frog": ExtResource("2_woohy"),
-"Log": ExtResource("3_byrti")
+"Log": ExtResource("3_byrti"),
+"Otter": ExtResource("4_pwj3t"),
+"Turtle": ExtResource("5_gt8xy")
 }
 
 [node name="Path2D" type="Path2D" parent="."]
