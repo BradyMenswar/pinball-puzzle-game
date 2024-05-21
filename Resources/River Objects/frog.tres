@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RiverObject" load_steps=2 format=3 uid="uid://dho75fdqa8sjb"]
+
+[ext_resource type="Script" path="res://Scripts/RiverObject.gd" id="1_5neaf"]
+
+[resource]
+script = ExtResource("1_5neaf")
+path = "res://Scenes/Frog.tscn"
+rotation = 180.0

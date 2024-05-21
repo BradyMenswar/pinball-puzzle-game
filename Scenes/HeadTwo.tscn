@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://hstamco3lou5"]
+
+[ext_resource type="Script" path="res://Scripts/HeadTwo.gd" id="1_ee0fx"]
+[ext_resource type="Texture2D" uid="uid://cbwj8jq6iuld7" path="res://Assets/button.png" id="1_uhs64"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_t72tu"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxkdw"]
+size = Vector2(37.3125, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbk3r"]
+size = Vector2(7.25, 29.7188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgn24"]
+size = Vector2(26.4531, 5.4375)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iud0c"]
+radius = 32.17
+
+[node name="HeadTwo" type="Node2D"]
+script = ExtResource("1_ee0fx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_t72tu")
+position = Vector2(1.516, -5.484)
+scale = Vector2(0.102064, 0.102064)
+texture = ExtResource("1_uhs64")
+
+[node name="Collision" type="StaticBody2D" parent="."]
+disable_mode = 1
+
+[node name="Top" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_mxkdw")
+
+[node name="Left" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-18, 1)
+shape = SubResource("RectangleShape2D_fbk3r")
+
+[node name="Right" type="CollisionShape2D" parent="Collision"]
+position = Vector2(18, 1)
+shape = SubResource("RectangleShape2D_fbk3r")
+
+[node name="Bottom" type="CollisionShape2D" parent="Collision"]
+z_index = 1
+position = Vector2(0.742561, 14.7973)
+shape = SubResource("RectangleShape2D_kgn24")
+disabled = true
+
+[node name="Mouth" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Mouth"]
+scale = Vector2(-0.290154, -0.290154)
+shape = SubResource("CircleShape2D_iud0c")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[connection signal="body_entered" from="Mouth" to="." method="_on_mouth_body_entered"]

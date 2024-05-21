@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=21 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="Script" path="res://Scripts/LevelOne.gd" id="1_te68m"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_mu4l2"]
@@ -13,10 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://dy3i11qvkg1ir" path="res://Scenes/HeadOne.tscn" id="8_ig4a3"]
 [ext_resource type="PackedScene" uid="uid://bvmuxxy37jsin" path="res://Scenes/TiltManager.tscn" id="9_q8h43"]
 [ext_resource type="PackedScene" uid="uid://bt5mjgn3y1pcu" path="res://Scenes/Flipper.tscn" id="10_cxee4"]
-[ext_resource type="PackedScene" uid="uid://cst6ml51bv8pt" path="res://Scenes/river_scene.tscn" id="14_1aihy"]
+[ext_resource type="PackedScene" uid="uid://cst6ml51bv8pt" path="res://Scenes/River.tscn" id="14_1aihy"]
 [ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/gator.tscn" id="15_cyuln"]
 [ext_resource type="Texture2D" uid="uid://cwhq2p4bus7yy" path="res://Assets/Test map.png" id="16_630vp"]
-[ext_resource type="PackedScene" uid="uid://dmq1i73i64iks" path="res://River Testing/Test_RiverPath.tscn" id="17_66slc"]
+[ext_resource type="PackedScene" uid="uid://dmq1i73i64iks" path="res://Scenes/RiverPath.tscn" id="17_66slc"]
+[ext_resource type="PackedScene" uid="uid://hstamco3lou5" path="res://Scenes/HeadTwo.tscn" id="17_gbkrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
 size = Vector2(1278, 271)
@@ -142,6 +143,11 @@ theme_override_font_sizes/font_size = 10
 text = "Head One : Dormant
 "
 
+[node name="Head 2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Head Two : Dormant"
+
 [node name="Tilt Bar" type="TextureProgressBar" parent="CanvasLayer/Control"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -159,7 +165,7 @@ position = Vector2(1, 156)
 [node name="Gator" parent="." instance=ExtResource("15_cyuln")]
 position = Vector2(173, -3)
 
-[node name="Head One2" parent="." instance=ExtResource("8_ig4a3")]
+[node name="HeadTwo" parent="." instance=ExtResource("17_gbkrv")]
 position = Vector2(232, -72)
 
 [node name="TestRiverPath" parent="." instance=ExtResource("17_66slc")]

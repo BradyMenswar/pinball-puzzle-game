@@ -1,16 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://canewcwkp887n"]
+[gd_scene load_steps=5 format=3 uid="uid://dmq1i73i64iks"]
 
-[ext_resource type="Script" path="res://Scripts/FrogScene.gd" id="1_13dyx"]
+[ext_resource type="Script" path="res://Scripts/RiverPath.gd" id="1_2gnhj"]
+[ext_resource type="Resource" uid="uid://dho75fdqa8sjb" path="res://Resources/River Objects/frog.tres" id="2_woohy"]
+[ext_resource type="Resource" uid="uid://cydv4m8vf1alt" path="res://Resources/River Objects/log.tres" id="3_byrti"]
 
-[sub_resource type="Curve2D" id="Curve2D_uqiab"]
+[sub_resource type="Curve2D" id="Curve2D_7kfj2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 292, 131, 0, 0, 0, 0, 250, 164, 0, 0, 0, 0, 218, 174, 0, 0, 0, 0, 160, 179, 0, 0, 0, 0, 66, 193, 0, 0, 0, 0, 18, 186, 0, 0, 0, 0, -12, 183, 0, 0, 0, 0, -76, 197, 0, 0, 0, 0, -125, 215, 0, 0, 0, 0, -184, 226, 0, 0, 0, 0, -233, 234, 0, 0, 0, 0, -286, 259)
+"points": PackedVector2Array(0, 0, 0, 0, 292, 131, 0, 0, 0, 0, 250, 164, 0, 0, 0, 0, 218, 174, 0, 0, 0, 0, 160, 179, 0, 0, 0, 0, 66, 193, 0, 0, 0, 0, 18, 186, 0, 0, 0, 0, -12, 183, 0, 0, 0, 0, -76, 197, 0, 0, 0, 0, -125, 215, 0, 0, 0, 0, -184, 226, 0, 0, 0, 0, -233, 234, 0, 0, 0, 0, -286, 259, 0, 0, 0, 0, -382, 266)
 }
-point_count = 12
+point_count = 13
 
-[node name="RiverPath" type="Node2D"]
-script = ExtResource("1_13dyx")
+[node name="TestRiverPath" type="Node2D"]
+script = ExtResource("1_2gnhj")
+spawnable_objects = {
+"Frog": ExtResource("2_woohy"),
+"Log": ExtResource("3_byrti")
+}
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-10, -186)
-curve = SubResource("Curve2D_uqiab")
+curve = SubResource("Curve2D_7kfj2")
+
+[node name="Spawn" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Spawn" to="." method="_on_spawn_timeout"]

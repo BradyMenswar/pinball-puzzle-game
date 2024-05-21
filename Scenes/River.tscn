@@ -1,43 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx4075lvjt5ag"]
+[gd_scene load_steps=2 format=3 uid="uid://cst6ml51bv8pt"]
 
-[ext_resource type="Script" path="res://Scripts/River.gd" id="1_1auq1"]
-[ext_resource type="Texture2D" uid="uid://currbox0e6qy6" path="res://Assets/frog.png" id="2_jvhfw"]
+[ext_resource type="Script" path="res://Scripts/River.gd" id="1_y2yrp"]
 
-[sub_resource type="Curve2D" id="Curve2D_5xyh6"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1776, -1831, 0, 0, 0, 0, 967, 238, 0, 0, 0, 0, -565, -497, 0, 0, 0, 0, -1556, 207, 0, 0, 0, 0, -2221, 1330)
-}
-point_count = 5
+[node name="River Scene" type="Node2D"]
+script = ExtResource("1_y2yrp")
 
-[node name="River" type="Area2D"]
-script = ExtResource("1_1auq1")
+[node name="Full River" type="Area2D" parent="."]
+linear_damp_space_override = 1
+linear_damp = 1.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(95.0339, -38.5297)
-scale = Vector2(4.32839, 4.82466)
-polygon = PackedVector2Array(2.9956, -128.189, -159.651, -211.097, -377, -64, -493, 63, -625.876, 248.21, -436.198, 322.412, -347.25, 145.82, -258.302, 66.8502, -172, -16, 2, 70, 246.504, 136.907, 373.017, -147.258, 461.965, -341.469, 311.193, -405.515, 257.363, -250.685, 163.794, -53.1582)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Full River"]
+position = Vector2(0, -156)
+polygon = PackedVector2Array(-295, 245, -284, 239, -267, 234, -247, 223, -232, 213, -210, 211, -188, 211, -141, 199, -119, 193, -110, 181, -52, 163, -1, 154, 35, 169, 80, 168, 95, 164, 138, 161, 171, 153, 206, 158, 227, 155, 249, 131, 253, 114, 272, 103, 279, 103, 281, 115, 290, 117, 300, 144, 266, 171, 258, 183, 228, 193, 182, 194, 138, 206, 85, 216, 50, 218, 26, 212, 4, 203, -27, 202, -57, 211, -94, 220, -107, 229, -129, 231, -152, 234, -174, 241, -216, 247, -244, 257, -278, 273)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(53, -12)
-scale = Vector2(4.25262, 4.71795)
-color = Color(0.211765, 0.560784, 1, 1)
-polygon = PackedVector2Array(-625.168, 246.717, -434.226, 325.777, -339.932, 147.734, -233.879, 52.9892, -172, -16, 1, 68, 260.874, 156.848, 385, -153, 477, -351, 332.971, -420.946, 274.419, -259.435, 176.691, -60.8315, -159.807, -214.924, -260.451, -143.918, -379, -64, -494, 63)
+[node name="Mid Section 1" type="Area2D" parent="."]
 
-[node name="Current" type="Path2D" parent="."]
-position = Vector2(12, -12)
-curve = SubResource("Curve2D_5xyh6")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mid Section 1"]
+polygon = PackedVector2Array(-125, 59, -16, 26, 65, 38, 161, 23, 217, 20, 206, 2, 171, -3, 138, 5, 95, 8, 80, 12, 34, 13, -1, -2, -52, 7, -110, 25, -119, 37)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Current"]
-position = Vector2(1776, -1831)
-rotation = -1.27679
-rotates = false
-loop = false
+[node name="Top Section 1" type="Area2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Current/PathFollow2D"]
-texture = ExtResource("2_jvhfw")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top Section 1"]
+polygon = PackedVector2Array(293.847, -24.5714, 249, 8, 217, 20, 207.366, 2.42844, 227.689, 0.123161, 250.381, -25.0719, 253.802, -41.1734, 272.156, -51.8521, 278.163, -52.019, 280.165, -40.0889, 289.175, -38.17, 293.18, -25.8228)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.165, 0.165)
+[node name="Top Section 2" type="Area2D" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top Section 2"]
+polygon = PackedVector2Array(228.189, 35.9135, 257.556, 25.9857, 265.398, 13.8053, 298.769, -12.2241, 294.014, -24.5714, 249, 8, 217, 20, 228, 36)
+
+[node name="Mid Section 2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mid Section 2"]
+polygon = PackedVector2Array(-125, 59, -79, 44, -16, 26, 18, 31, 65, 38, 108, 31, 161, 23, 217, 20, 228, 36, 181.179, 37.1064, 136, 49, 85, 59, 50, 61, 25.3553, 54.337, 5, 46, -27, 45, -93.4098, 62.7775, -108, 72, -128, 74)
+
+[node name="Bottom Section 1" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottom Section 1"]
+polygon = PackedVector2Array(-290, 87, -266.764, 78.5393, -233, 57, -188, 55, -120, 38, -125, 59, -182, 70, -232, 78, -267, 95)
+
+[node name="Bottom Section 2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottom Section 2"]
+polygon = PackedVector2Array(-267, 95, -261.134, 108.684, -243, 100, -216, 90, -174, 84, -151, 77, -129, 74, -125, 59, -181, 70, -232, 78)
+
+[node name="Spit" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spit"]
+polygon = PackedVector2Array(-267, 95, -261.252, 108.74, -277.912, 116.571, -294.441, 88.9795, -290, 87)
+
+[connection signal="body_entered" from="Full River" to="." method="_on_full_river_body_entered"]
+[connection signal="body_exited" from="Full River" to="." method="_on_full_river_body_exited"]
+[connection signal="body_shape_exited" from="Full River" to="." method="_on_full_river_body_shape_exited"]
+[connection signal="body_entered" from="Mid Section 1" to="." method="_on_mid_section_1_body_entered"]
+[connection signal="body_exited" from="Mid Section 1" to="." method="_on_mid_section_1_body_exited"]
+[connection signal="body_entered" from="Top Section 1" to="." method="_on_top_section_1_body_entered"]
+[connection signal="body_exited" from="Top Section 1" to="." method="_on_top_section_1_body_exited"]
+[connection signal="body_entered" from="Top Section 2" to="." method="_on_top_section_2_body_entered"]
+[connection signal="body_exited" from="Top Section 2" to="." method="_on_top_section_2_body_exited"]
+[connection signal="body_entered" from="Mid Section 2" to="." method="_on_mid_section_2_body_entered"]
+[connection signal="body_exited" from="Mid Section 2" to="." method="_on_mid_section_2_body_exited"]
+[connection signal="body_entered" from="Bottom Section 1" to="." method="_on_bottom_section_1_body_entered"]
+[connection signal="body_exited" from="Bottom Section 1" to="." method="_on_bottom_section_1_body_exited"]
+[connection signal="body_entered" from="Bottom Section 2" to="." method="_on_bottom_section_2_body_entered"]
+[connection signal="body_exited" from="Bottom Section 2" to="." method="_on_bottom_section_2_body_exited"]
+[connection signal="body_entered" from="Spit" to="." method="_on_spit_body_entered"]
+[connection signal="body_exited" from="Spit" to="." method="_on_spit_body_exited"]

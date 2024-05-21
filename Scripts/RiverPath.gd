@@ -14,6 +14,8 @@ var has_frog = false
 
 func _ready():
 	spawn_timer.start(1)
+	Events.connect("head_two_activated", _on_head_two_activated)
+	Events.connect("ball_lost", _on_ball_lost)
 
 func _process(delta):
 	for follow in path.get_children():
@@ -40,3 +42,10 @@ func _on_spawn_timeout():
 		river_object = spawnable_objects["Log"]
 	spawn_object(river_object.path, river_object.rotation)
 	spawn_timer.start(randf_range(min_spawn_interval, max_spawn_interval))
+	
+func _on_head_two_activated():
+	has_frog = true
+	
+func _on_ball_lost():
+	if(!GameManager.is_head_two_activated):
+		has_frog = false
