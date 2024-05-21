@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RiverObject" load_steps=2 format=3 uid="uid://cydv4m8vf1alt"]
+
+[ext_resource type="Script" path="res://River Testing/RiverObject.gd" id="1_ibwuj"]
+
+[resource]
+script = ExtResource("1_ibwuj")
+path = "res://River Testing/Test_Log.tscn"
+rotation = 90.0

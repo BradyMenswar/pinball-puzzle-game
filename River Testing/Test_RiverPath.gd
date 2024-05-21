@@ -8,12 +8,7 @@ extends Node2D
 @export var min_spawn_interval := 10.0
 @export var max_spawn_interval := 20.0
 
-enum SpawnableObject {Path, Rotation}
-
-@export var spawnable_objects := {
-	"Frog": ["res://River Testing/Test_Frog.tscn", 180],
-	"Log": ["res://River Testing/Test_Log.tscn", 90]
-}
+@export var spawnable_objects : Dictionary
 
 var has_frog = false
 
@@ -37,11 +32,11 @@ func spawn_object(object_path, new_rotation):
 	
 func _on_spawn_timeout():
 	var selection_chance = randi_range(0, 100)
-	var river_object = null
+	var river_object: RiverObject = null
 	if selection_chance < 25 and !has_frog:
 		has_frog = true
 		river_object = spawnable_objects["Frog"]
 	else:
 		river_object = spawnable_objects["Log"]
-	spawn_object(river_object[SpawnableObject.Path], river_object[SpawnableObject.Rotation])
+	spawn_object(river_object.path, river_object.rotation)
 	spawn_timer.start(randf_range(min_spawn_interval, max_spawn_interval))
