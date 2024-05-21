@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1vdjya045jd5"]
+
+[ext_resource type="Script" path="res://River Testing/Test_Frog.gd" id="1_grf2w"]
+[ext_resource type="Texture2D" uid="uid://currbox0e6qy6" path="res://Assets/frog.png" id="1_wnanl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gfvq1"]
+radius = 10.6875
+
+[node name="TestFrog" type="PathFollow2D" groups=["Frog"]]
+loop = false
+script = ExtResource("1_grf2w")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_wnanl")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_gfvq1")
+
+[connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]

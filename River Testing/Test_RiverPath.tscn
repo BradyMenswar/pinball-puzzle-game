@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmq1i73i64iks"]
+
+[ext_resource type="Script" path="res://River Testing/Test_RiverPath.gd" id="1_2gnhj"]
+
+[sub_resource type="Curve2D" id="Curve2D_7kfj2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 292, 131, 0, 0, 0, 0, 250, 164, 0, 0, 0, 0, 218, 174, 0, 0, 0, 0, 160, 179, 0, 0, 0, 0, 66, 193, 0, 0, 0, 0, 18, 186, 0, 0, 0, 0, -12, 183, 0, 0, 0, 0, -76, 197, 0, 0, 0, 0, -125, 215, 0, 0, 0, 0, -184, 226, 0, 0, 0, 0, -233, 234, 0, 0, 0, 0, -286, 259, 0, 0, 0, 0, -382, 266)
+}
+point_count = 13
+
+[node name="TestRiverPath" type="Node2D"]
+script = ExtResource("1_2gnhj")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-10, -186)
+curve = SubResource("Curve2D_7kfj2")
+
+[node name="Spawn" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Spawn" to="." method="_on_spawn_timeout"]

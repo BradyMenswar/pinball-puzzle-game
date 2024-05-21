@@ -6,7 +6,7 @@ var timer = Timer.new()
 var river_obj_array = [];
 var removal_queue = [];
 var rng = RandomNumberGenerator.new()
-var spawn_timer = [3,6]
+var spawn_timer = [10,15]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(timer)
@@ -69,4 +69,3 @@ func spawn_object():
 	
 func set_frog_bool():
 	frog_present = false
-	

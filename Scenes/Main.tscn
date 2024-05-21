@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cst6ml51bv8pt" path="res://Scenes/river_scene.tscn" id="14_1aihy"]
 [ext_resource type="PackedScene" uid="uid://qq550hkhxfvi" path="res://Scenes/gator.tscn" id="15_cyuln"]
 [ext_resource type="Texture2D" uid="uid://cwhq2p4bus7yy" path="res://Assets/Test map.png" id="16_630vp"]
-[ext_resource type="PackedScene" uid="uid://canewcwkp887n" path="res://Scenes/RiverPath.tscn" id="16_dlerw"]
+[ext_resource type="PackedScene" uid="uid://dmq1i73i64iks" path="res://River Testing/Test_RiverPath.tscn" id="17_66slc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
 size = Vector2(1278, 271)
@@ -159,12 +159,11 @@ position = Vector2(1, 156)
 [node name="Gator" parent="." instance=ExtResource("15_cyuln")]
 position = Vector2(173, -3)
 
-[node name="FrogScene" parent="." instance=ExtResource("16_dlerw")]
-z_index = 2
-position = Vector2(10, 187)
-
 [node name="Head One2" parent="." instance=ExtResource("8_ig4a3")]
 position = Vector2(232, -72)
+
+[node name="TestRiverPath" parent="." instance=ExtResource("17_66slc")]
+position = Vector2(0, 191)
 
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]
 [connection signal="value_changed" from="CanvasLayer/Control/Tilt Bar" to="CanvasLayer/Control/Tilt Bar" method="_on_value_changed"]
