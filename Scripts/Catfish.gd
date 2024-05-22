@@ -4,7 +4,7 @@ var sprite_ball = Sprite2D.new()
 var under_water = Sprite2D.new()
 var above_water = Sprite2D.new()
 var timer = Timer.new()
-@export var wait_no_frog = 3
+@export var wait_no_frog = 2
 @export var wait_yes_frog = 5
 var ate_ball = false
 func _ready():
@@ -23,7 +23,6 @@ func _on_area_2d_body_entered(body):
 			timer.start(wait_yes_frog)
 		else:
 			timer.start(wait_no_frog)
-			
 		body.remove_self()
 		under_water.visible = false
 		above_water.visible = true

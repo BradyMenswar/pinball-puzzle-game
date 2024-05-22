@@ -5,8 +5,8 @@ extends Node2D
 @onready var spawn_timer = $Spawn
 
 @export var move_speed = 0.08
-@export var min_spawn_interval := 5.0
-@export var max_spawn_interval := 10.0
+@export var min_spawn_interval := 3.0
+@export var max_spawn_interval := 5.0
 
 @export var spawnable_objects : Dictionary
 

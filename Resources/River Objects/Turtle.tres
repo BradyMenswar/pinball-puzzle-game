@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_g1vge")
 path = "res://Scenes/Turtle.tscn"
-rotation = 0.0
+rotation = 180.0
