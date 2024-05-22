@@ -17,6 +17,6 @@ func _on_area_2d_body_entered(body):
 		if body.is_frog == true:
 			sprite_ball.self_modulate = Color(0,0.5,0)
 		body.remove_self()
-		Events.emit_signal("ball_lost")
+		Events.emit_signal("ball_lost", true)
 		under_water.visible = false
 		above_water.visible = true

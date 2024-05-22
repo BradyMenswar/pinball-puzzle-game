@@ -53,6 +53,6 @@ func _on_spawn_timeout():
 func _on_head_two_activated():
 	has_frog = true
 	
-func _on_ball_lost():
+func _on_ball_lost(_lose_life):
 	if(!GameManager.is_head_two_activated):
 		has_frog = false

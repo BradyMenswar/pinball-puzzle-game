@@ -7,6 +7,8 @@ var lives = max_lives
 @export var is_head_one_activated := false
 @export var is_head_two_activated := false
 
+var ball_spawn_location = Vector2(150,400)
+
 func _ready():
 	Events.connect("ball_lost", on_ball_lost)
 	Events.connect("game_over", _on_game_over)
@@ -14,9 +16,9 @@ func _ready():
 	Events.connect("head_one_activated", _on_head_one_activated)	
 	Events.connect("head_two_activated", _on_head_two_activated)
 
-func on_ball_lost():
+func on_ball_lost(lose_life):
 	var balls = get_tree().get_nodes_in_group("Ball")
-	if balls.size() <= 1:
+	if balls.size() <= 1 and lose_life:
 		lives -= 1
 		if(lives <= 0):
 			Events.emit_signal("game_over")

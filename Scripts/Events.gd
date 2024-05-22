@@ -1,6 +1,6 @@
 extends Node
 
-signal ball_lost
+signal ball_lost(lose_life)
 signal lives_changed(lives)
 signal game_over
 signal spawn_new_ball

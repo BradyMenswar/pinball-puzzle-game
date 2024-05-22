@@ -33,7 +33,7 @@ func _input(event):
 	elif event.is_action_pressed("bump_up") and cooldown_available and !tilt_maxed:
 		apply_bump(0, -impulse_strength * 2)
 
-func _on_ball_lost():
+func _on_ball_lost(_lose_life):
 	current_tilt = 0
 	tilt_maxed = false
 	Events.emit_signal("tilt_changed", current_tilt)

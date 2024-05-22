@@ -47,7 +47,7 @@ func _on_tilt_maxed():
 		reverse_animation()
 	tilt_timer.start(GameManager.tilt_lockout)
 	
-func _on_ball_lost():
+func _on_ball_lost(_lose_life):
 	tilt_maxed = false
 
 func _on_animation_player_animation_started(_anim_name):

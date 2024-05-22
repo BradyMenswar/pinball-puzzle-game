@@ -10,6 +10,7 @@ func _on_mouth_body_entered(body):
 		bottom_collision.set_deferred("disabled", false)
 		Events.emit_signal("head_one_activated")
 		if destroy_ball:
+			Events.emit_signal("ball_lost", false)
 			body.remove_self()
 			var sprite_ball = Sprite2D.new()
 			sprite_ball.texture = load("res://Assets/pinball.png")

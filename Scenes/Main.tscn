@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bhq64j7giowbb"]
+[gd_scene load_steps=24 format=3 uid="uid://bhq64j7giowbb"]
 
 [ext_resource type="Script" path="res://Scripts/LevelOne.gd" id="1_te68m"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_mu4l2"]
@@ -20,6 +20,28 @@
 [ext_resource type="PackedScene" uid="uid://dmq1i73i64iks" path="res://Scenes/RiverPath.tscn" id="17_66slc"]
 [ext_resource type="PackedScene" uid="uid://hstamco3lou5" path="res://Scenes/HeadTwo.tscn" id="17_gbkrv"]
 
+[sub_resource type="Animation" id="Animation_cure8"]
+resource_name = "reset_ball"
+length = 2.0
+step = 0.161
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.932),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 540)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrl6v"]
+_data = {
+"reset_ball": SubResource("Animation_cure8")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wikol"]
 size = Vector2(1278, 271)
 
@@ -29,6 +51,8 @@ colors = PackedColorArray(0, 0.813116, 0, 1, 0.684129, 0.765878, 3.03279e-07, 1,
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_te68m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Temp Background" type="Sprite2D" parent="."]
 position = Vector2(0, -180)
@@ -44,6 +68,11 @@ drag_left_margin = 1.0
 drag_right_margin = 1.0
 editor_draw_drag_margin = true
 script = ExtResource("2_mu4l2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_vrl6v")
+}
 
 [node name="Slingshot Left" parent="." instance=ExtResource("5_hv756")]
 position = Vector2(-120, 406)
@@ -195,5 +224,6 @@ position = Vector2(232, -72)
 [node name="TestRiverPath" parent="." instance=ExtResource("17_66slc")]
 position = Vector2(0, 191)
 
+[connection signal="animation_finished" from="Camera2D/AnimationPlayer" to="Camera2D" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Killbox" to="Killbox" method="_on_body_entered"]
 [connection signal="value_changed" from="CanvasLayer/Bottom UI/Tilt Bar" to="CanvasLayer/Bottom UI/Tilt Bar" method="_on_value_changed"]
