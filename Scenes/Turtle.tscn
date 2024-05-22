@@ -13,5 +13,14 @@ texture = ExtResource("1_o44uj")
 
 [node name="CircleBouncer" parent="Node2D" instance=ExtResource("2_kkyaq")]
 visible = false
+position = Vector2(7, 0)
 rotation = 1.5708
-scale = Vector2(0.1, 0.25)
+scale = Vector2(0.2, 0.2)
+impulse_strength = 50.0
+
+[node name="CircleBouncer2" parent="Node2D" instance=ExtResource("2_kkyaq")]
+visible = false
+position = Vector2(-10, 3.63798e-12)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+impulse_strength = 50.0

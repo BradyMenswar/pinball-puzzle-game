@@ -29,7 +29,8 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_timer_timeout():
-	if progress_ratio < 0.9:
+	print(progress_ratio)
+	if progress_ratio < 0.85:
 		Events.emit_signal("spawn_new_ball",position.x,position.y,75,-200)
 	else:
 		Events.emit_signal("ball_lost")
