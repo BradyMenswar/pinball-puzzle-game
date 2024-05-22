@@ -6,7 +6,6 @@
 script = ExtResource("1_y2yrp")
 
 [node name="Full River" type="Area2D" parent="."]
-linear_damp_space_override = 1
 linear_damp = 1.0
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Full River"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpwgruwtkv7o3"]
 
-[ext_resource type="Texture2D" uid="uid://gvm83kprncl3" path="res://Assets/shell.png" id="1_mm20l"]
+[ext_resource type="Texture2D" uid="uid://cevhhnivhkgh3" path="res://Assets/turtle.png" id="1_o44uj"]
 [ext_resource type="PackedScene" uid="uid://dpsd7qnqbe3my" path="res://Scenes/CircleBouncer.tscn" id="2_kkyaq"]
 
 [node name="Turtle" type="PathFollow2D"]
@@ -9,9 +9,9 @@ loop = false
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-texture = ExtResource("1_mm20l")
+texture = ExtResource("1_o44uj")
 
 [node name="CircleBouncer" parent="Node2D" instance=ExtResource("2_kkyaq")]
 visible = false
 rotation = 1.5708
-scale = Vector2(0.2, 0.25)
+scale = Vector2(0.1, 0.25)
