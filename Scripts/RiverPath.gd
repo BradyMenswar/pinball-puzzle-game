@@ -5,8 +5,8 @@ extends Node2D
 @onready var spawn_timer = $Spawn
 
 @export var move_speed = 0.08
-@export var min_spawn_interval := 3.0
-@export var max_spawn_interval := 5.0
+@export var min_spawn_interval := 5.0
+@export var max_spawn_interval := 10.0
 
 @export var spawnable_objects : Dictionary
 
@@ -35,14 +35,14 @@ func spawn_object(object_path, new_rotation):
 func _on_spawn_timeout():
 	var selection_chance = randi_range(0, 100)
 	var river_object: RiverObject = null
-	if selection_chance < 20 and !has_frog:
+	if selection_chance < 40 and !has_frog:
 		has_frog = true
 		river_object = spawnable_objects["Frog"]
-	elif selection_chance < 40:
+	elif selection_chance < 55:
 		river_object = spawnable_objects["Log"]
-	elif selection_chance < 60:
+	elif selection_chance < 70:
 		river_object = spawnable_objects["Otter"]
-	elif selection_chance < 80:
+	elif selection_chance < 85:
 		river_object = spawnable_objects["Turtle"]
 	else:
 		river_object = spawnable_objects["Catfish"]

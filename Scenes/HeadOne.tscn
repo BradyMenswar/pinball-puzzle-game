@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/HeadOne.gd" id="1_oquff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkydc"]
-size = Vector2(37.3125, 7.5)
+size = Vector2(25.415, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sfut"]
 size = Vector2(7.25, 29.7188)
@@ -27,7 +27,15 @@ texture = ExtResource("1_6ao07")
 disable_mode = 1
 
 [node name="Top" type="CollisionShape2D" parent="Collision"]
-position = Vector2(0, -17)
+position = Vector2(8.9249, -16.7754)
+rotation = 0.523599
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nkydc")
+
+[node name="Top2" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-9, -17)
+rotation = -0.523599
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_nkydc")
 
 [node name="Left" type="CollisionShape2D" parent="Collision"]

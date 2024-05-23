@@ -33,7 +33,7 @@ func _on_timer_timeout():
 	if progress_ratio < 0.85:
 		Events.emit_signal("spawn_new_ball",position.x,position.y,75,-200)
 	else:
-		Events.emit_signal("ball_lost")
+		Events.emit_signal("ball_lost", true)
 	sprite_ball.texture = null
 	under_water.visible = true
 	above_water.visible = false

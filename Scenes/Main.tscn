@@ -55,7 +55,7 @@ script = ExtResource("1_te68m")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Temp Background" type="Sprite2D" parent="."]
-position = Vector2(0, -180)
+position = Vector2(-1, -180)
 texture = ExtResource("16_630vp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -98,7 +98,7 @@ position = Vector2(-70, 488)
 scale = Vector2(0.0799985, 0.0799985)
 
 [node name="Head One" parent="." instance=ExtResource("8_ig4a3")]
-position = Vector2(-261, 198)
+position = Vector2(-197, 175)
 scale = Vector2(-1, 1)
 
 [node name="Flipper Left2" parent="." instance=ExtResource("10_cxee4")]
@@ -149,12 +149,12 @@ polygon = PackedVector2Array(1172.39, 1464.68, 2089, 1540.63, 2499.21, 1054.42, 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls"]
 polygon = PackedVector2Array(1953.65, -1645.49, 1998.22, -1760.06, 2117.21, -1928.77, 1976.19, -2020.98, 1797.37, -1692.56)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls"]
-position = Vector2(-24.281, -14.0188)
-polygon = PackedVector2Array(3059.04, 28.7029, 2983.36, 103.714, 2917.02, 162.539, 2847.26, 208.596, 2744.21, 181.475, 2656.43, 109.213, 2674.21, 22.3506, 2647.76, -25.2949, 2656.19, -95.9695, 2658.69, -137.69, 2730.96, -225.468, 2836.51, -240.068, 2909.35, -198.011, 3003.06, -154.703, 2999.3, -92.1218)
-
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls"]
 polygon = PackedVector2Array(107.995, -822.561, 49.7515, -759.064, -31.8569, -655.098, -160.439, -675.378, -191.562, -714.93, -116.795, -844.428, -4.98047, -963.329, 98.0688, -936.208, 150.051, -895.404)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2(-8.09368, -4.67293)
+polygon = PackedVector2Array(3553.33, 443.586, 3509.78, 332.107, 3373.44, 231.807, 3282.82, 276.613, 3163.25, 315.493, 3165.08, 424.468, 3166.92, 533.442, 3237.25, 617.219, 3339.05, 665.2, 3420.32, 636.582, 3508.77, 558.15)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("6_opnyw")
