@@ -95,7 +95,6 @@ shape = SubResource("RectangleShape2D_wikol")
 
 [node name="Flipper Left" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(-70, 488)
-scale = Vector2(0.0799985, 0.0799985)
 
 [node name="Head One" parent="." instance=ExtResource("8_ig4a3")]
 position = Vector2(-197, 175)
@@ -103,16 +102,15 @@ scale = Vector2(-1, 1)
 
 [node name="Flipper Left2" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(-207, -49)
-scale = Vector2(0.0799985, 0.0799985)
 
 [node name="Flipper Right" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(70, 488)
-scale = Vector2(-0.08, 0.08)
+scale = Vector2(-1, 1)
 is_right = true
 
 [node name="Flipper Right2" parent="." instance=ExtResource("10_cxee4")]
 position = Vector2(291, -168)
-scale = Vector2(-0.08, 0.08)
+scale = Vector2(-1, 1)
 is_right = true
 
 [node name="Tilt Manager" parent="." instance=ExtResource("9_q8h43")]
