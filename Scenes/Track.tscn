@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://dawksoy8wtuux"]
+
+[ext_resource type="Script" path="res://Scenes/Track.gd" id="1_gxlhn"]
+
+[node name="Track" type="Node2D"]
+script = ExtResource("1_gxlhn")
+
+[node name="Sprite" type="Polygon2D" parent="."]
+z_index = 11
+color = Color(0.235294, 0.254902, 0.27451, 1)
+polygon = PackedVector2Array(19, -4, -10, 15, -54, -45, -96, -130, -103, -157, -99, -185, -86, -204, -62, -219, 23, -224, 32, -189, -28, -188, -55, -182, -60, -172, -58, -152, -27, -78, 2, -32)
+
+[node name="Side 1" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="Side 1 Collision" type="CollisionPolygon2D" parent="Side 1"]
+polygon = PackedVector2Array(27, -8, 21, -4, -24, -72, -59, -149, -60, -169, -58, -175, -54, -181, -43, -185, -21, -188, 11, -188, 33, -188, 33, -178, 10, -177, -13, -177, -35, -174, -51, -171, -52, -158, -46, -138, -34, -106, -17, -68)
+
+[node name="Side 2" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="Side 2 Collision" type="CollisionPolygon2D" parent="Side 2"]
+polygon = PackedVector2Array(-9, 15, -14, 18, -63, -47, -84, -84, -108, -140, -108, -180, -92, -212, -67, -227, -44, -231, 21, -235, 24, -225, -40, -220, -66, -217, -78, -210, -88, -202, -95, -193, -102, -174, -102, -154, -96, -132, -84, -104, -58, -52)
+
+[node name="Track Area" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Track Area"]
+position = Vector2(15, 16)
+polygon = PackedVector2Array(-26, -3, 4, -22, -2, -31, -36, -16)
+
+[node name="Under" type="StaticBody2D" parent="."]
+
+[node name="Under Collision" type="CollisionPolygon2D" parent="Under"]
+polygon = PackedVector2Array(-14, 17, -9, 15, -25, -8, 7, -23, 21, -3, 26, -8, 1, -35, -58, -40)
+
+[node name="Track Exit" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Track Exit"]
+position = Vector2(16, -1)
+polygon = PackedVector2Array(20, -234, 31, -181, 17, -177, 6, -234)
+
+[node name="Track Front Exit" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Track Front Exit"]
+position = Vector2(3, 5)
+polygon = PackedVector2Array(-11, 20, 30, -6, 24, -14, -17, 13)
+
+[connection signal="body_entered" from="Track Area" to="." method="_on_track_area_body_entered"]
+[connection signal="body_entered" from="Track Exit" to="." method="_on_track_exit_body_entered"]
+[connection signal="body_entered" from="Track Front Exit" to="." method="_on_track_front_exit_body_entered"]

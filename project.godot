@@ -67,6 +67,7 @@ bump_up={
 [layer_names]
 
 2d_physics/layer_1="Ball"
+2d_physics/layer_9="Track"
 2d_physics/layer_10="Bounce"
 
 [physics]
